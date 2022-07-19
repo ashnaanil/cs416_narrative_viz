@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Cereal Manufacturers Analysis </title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+  </head>
+  <body onload='init()'>
+    <h1> This is the relationship between Cereal Manufacturers and the Ratings </h1>
+    <svg width="300" height="300" id="myid"> 
+    </svg>
+	  <script>
+    async function init() {
+	    const data = await d3.csv("cereal.csv");
+    	console.log(data)
+    	d3.select('svg')
+    	.append("g")
+	    .attr("transform", "translate(150,150)")
+    	.selectAll('circle')
+    	.data(data)
+    	.enter()
+    	.append('circle')
+    	.attr('cx', function(d) { return d.calories;})
+    	.attr('cy', function(d) { return d.rattings;})
+    	.attr('r', function(d) { return 2 + d.cups;});
+    }
+  </script>
+  </body>
+</html>
