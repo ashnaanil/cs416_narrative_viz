@@ -23,9 +23,9 @@
     	.data(data)
     	.enter()
     	.append('circle')
-    	.attr('cx', function(d) { return d.ratting;})
-    	.attr('cy', function(d) { return d.calories;})
-    	.attr('r', function(d) { return d.cups;});
+    	.attr('cx', function(d) { return d.calories;})
+    	.attr('cy', function(d) { return d.rattings;})
+    	.attr('r', function(d) { return 5 + d.cups;});
     }
   </script>
   </body>
