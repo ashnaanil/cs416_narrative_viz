@@ -36,12 +36,24 @@
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
          .call(d3.axisBottom(x));
-        
+	 .append("text")
+	    .attr("x", width - 50)
+	    .attr("y", height - 50)
+	    .attr("text-anchor", "end")
+	    .attr("stroke", "black")
+	    .text("Manufacturer"
 	//appending the y axis
         g.append("g")
          .call(d3.axisLeft(y).tickFormat(function(d){
              return d;
          }).ticks(10))
+	 .append("text")
+	    .attr("transform", "rotate(-90)")
+	    .attr("y", 6)
+	    .attr("dy", =-5.1em")
+		  .attr("text-anchor","end")
+	    .attr("stroke", "black")
+	    .text("Rating")
 	
 	 var sum = d3.sum(data, function(d) { return d.rating; });
 	 var avg = sum/data.length;
@@ -56,6 +68,15 @@
 	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function(d) { return height - y(d.rating); });
+	    
+	//adding text element
+	 svg.append("text")
+	    .attr("transform", "translate(100,0)")
+	    .attr("x",50)
+	    .attr("y",50)
+	    .attr("font-size", "20px")
+	    .text("Manufacturer vs Avg Rating")	    
+	    
 };
 </script>
 </body>
