@@ -30,7 +30,7 @@
         
 	//setting axis domains based on data
         x.domain(data.map(function(d) { return d.mfr; }));
-        y.domain([0, d3.max(data, function(d) { return d.sugars; })]);
+        y.domain([0, 16]);
         
 	//appending the x axis
         g.append("g")
@@ -73,7 +73,7 @@
 	    .attr("x",50)
 	    .attr("y",50)
 	    .attr("font-size", "20px")
-	    .text("Manufacturer vs Avg Rating")	    
+	    .text("Manufacturer vs Avg Sugars")	    
 	    
 };
 </script>
