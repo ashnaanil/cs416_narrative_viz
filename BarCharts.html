@@ -5,7 +5,7 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body onload='init()'>
-  <h1> This is the relationship between Cereal Manufacturers and the Average Ratings </h1>
+  <h1> This is the relationship between Manufacturers and the Average Cereal Ratings </h1>
   <svg width="600" height="500"></svg>
   <script>
   
@@ -42,11 +42,17 @@
          .call(d3.axisLeft(y).tickFormat(function(d){
              return d;
          }).ticks(10))
-         .append("text")
-         .attr("y", 6)
-         .attr("dy", "0.71em")
-         .attr("text-anchor", "end")
-         .text("value");
+	
+	//adding the bars
+	g.selectAll(".bar")
+	    .data(data)
+	    .enter()
+	    .append("rect")
+	    .attr("class", "bar")
+	    .attr("x", function(d) { return x(d.mfr); })
+	    .attr("y", function(d) { return y(d.rating); })
+	    .attr("width", x.bandwidth())
+	    .attr("height", function(d) { return height - y(d.rating); });
 };
 </script>
 </body>
