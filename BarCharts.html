@@ -30,7 +30,7 @@
         
 	//setting axis domains based on data
         x.domain(data.map(function(d) { return d.mfr; }));
-        y.domain([0, d3.max(data, function(d) { return d.rating; })]);
+        y.domain([0, d3.max(data, function(d) { return d3.mean(d.rating); })]);
         
 	//appending the x axis
         g.append("g")
