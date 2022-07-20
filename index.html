@@ -6,27 +6,77 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CS 416 - Cereals Narrative Viz</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <style> circle {fill: lightblue; stroke: black;} </style>
   </head>
-  <body onload='init()'>
-    <h1>This is the relationship between Rating and Calories </h1>
-    <svg width="300" height="300" id="myid"> 
-    </svg>
-	  <script>
-    async function init() {
-	    const data = await d3.csv('XYZ.csv');
-    	console.log(data)
-    	d3.select('svg')
-    	.append("g")
-	    .attr("transform", "translate(50,50)")
-    	.selectAll('circle')
-    	.data(data)
-    	.enter()
-    	.append('circle')
-    	.attr('cx', function(d) { return d.AverageCityMPG;})
-    	.attr('cy', function(d) { return d.AverageHighwayMPG;})
-    	.attr('r', function(d) { return 2 + Number.parseInt(d.EngineCylinders);});
-    }
+  <body id="Top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="cereal-ranked.jpg" alt="">
+        </span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+          <a class="nav-link " href="#Intro">Introduction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#marketvalue">Ratings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+	
+<div class="container-fluid p-0">
+      <section class="p-3 p-lg-5 d-flex d-column" id="Intro">
+        <div class="my-auto">
+        <article>
+        Hello everyone and welcome to my simple visualization. 
+	<br/>
+	I have created a visualization that talks Cereal Manufacturers and statistics about their cereals such as Avergae Ratings, Calories, Sugars etc..
+	<br/>
+
+        <h3> MAIN AIM: </h3> 
+	<p> To analyze the data and spot trends or patterns between cereal manufacturers and other paramters </p>
+        <br/>
+        <h3> Grading rubric </h3>
+        I have included a list of sources that I referenced code from for this project.
+	<br/>
+        For this project I used d3.js, html and css.
+	<br/>
+        </article>
+
+	<a class="button" href="#Ratings" font-size='40px'> Next </a>
+        </div>
+      </section>
+
+      <section class=" p-3 p-lg-5 d-flex d-column" id="Ratings">
+        <div class="my-auto">
+          <h1 class="mb-0"> Avergae
+            <span class="text-primary">Ratings </span>
+          </h1>
+          <div class="info mb-5">Age: 26, Place of Birth: Nagrig, Egypt, Height: 5gt 9 in, Current Team: Liverppol, Number: 11
+          </div>
+            <svg id='svg-1' width="900" height="400" float="left" > </svg>
+          <article>
+            <h4> KEY TAKEAWAYS FROM GRAPH </h4>
+            <ul>
+              <li> Salah is a top goalscorer as he has scored in pretty much all competitions </li>
+              <li> Salah had an ok Appreances to goals ratio but in the PLS2 he did amazing and gained prominence. Its now time to see how significant this season was to his current stature </li>
+            <ul>
+           </article>
+        </div>
+            <p>This Presentation has 2 main slides and one about the visualization slide.</p>
+        </div>
+      </section>
+	      
+      <a class="button" href="#Top" font-size='40px'> Return </a>
+      <br/>
+  </div>
+	
+  <script>
   </script>
   </body>
 </html>
