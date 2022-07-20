@@ -24,13 +24,13 @@
     .attr("transform", "translate(" + 100 + "," + 100 + ")");
     
     //loading data and appending axis
-	  
-       async function init() {
+    async function init() {
 	    const data = await d3.csv('cereal.csv');
+      console.log(data)
         
 	//setting axis domains based on data
         x.domain(data.map(function(d) { return d.mfr; }));
-        y.domain([0, 180]);
+        y.domain([0, d3.max(data, 180]);
         
 	//appending the x axis
         g.append("g")
@@ -38,6 +38,7 @@
          .call(d3.axisBottom(x))
 	 .append("text")
 	    .attr("x", width - 200)
+	    .attr("y", 30)
 	    .attr("text-anchor", "end")
 	    .attr("stroke", "black")
 	    .text("Manufacturer");
@@ -49,12 +50,12 @@
          }).ticks(10))
 	 .append("text")
 	    .attr("transform", "rotate(-90)")
-	    .attr("y", 6)
+	    .attr("y", 5)
 	    .attr("dy", "-5.1em")
 		  .attr("text-anchor","end")
 	    .attr("stroke", "black")
-	    .text("Calories");
-	
+	    .text("Rating");
+	  
 	//adding the bars
 	g.selectAll(".bar")
 	    .data(data)
@@ -62,19 +63,19 @@
 	    .append("rect")
 	    .attr("class", "bar")
 	    .attr("x", function(d) { return x(d.mfr); })
-	    .attr("y", function(d) { return y(d.cals); })
+	    .attr("y", function(d) { return y(d.calories); })
 	    .attr("width", x.bandwidth())
-	    .attr("height", function(d) { return height - y(d.cals); });
+	    .attr("height", function(d) { return height - y(d.calories); });
 	    
 	//adding text element
 	 svg.append("text")
 	    .attr("transform", "translate(100,0)")
 	    .attr("x",50)
-	    .attr("y",150)
+	    .attr("y",50)
 	    .attr("font-size", "20px")
 	    .text("Manufacturer vs Avg Calories")	    
-;
-	  
+	    
+};
 </script>
 </body>
 </html>
