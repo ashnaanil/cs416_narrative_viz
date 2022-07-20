@@ -22,7 +22,7 @@
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
     async function init() {
-	    const data = await d3.csv('Cereal.csv');
+	    const data = await d3.csv('cereal.csv');
       console.log(data)
 
         xScale.domain(data.map(function(d) { return d.mfr; }));
