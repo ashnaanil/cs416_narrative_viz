@@ -10,7 +10,7 @@
   <body id="Top">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="cereal-ranked.jpg" width="200" height = "200" alt="">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="cereal-ranked.jpg" width="300" height = "200" alt="">
         </span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,7 @@
 
       <section class=" p-3 p-lg-5 d-flex d-column" id="Ratings">
         <div class="my-auto">
-          <h1 class="mb-0"> Avergae
+          <h1 class="mb-0"> Average
             <span class="text-primary">Ratings </span>
           </h1>
           <div class="info mb-5"> Insert Text Describing Chart here
@@ -76,6 +76,14 @@
   </div>
 	
   <script>
+	var svg1 = d3.select("#svg-1")
+	var width = +svg1.attr("width") - margin.left - margin.right
+  	var height = +svg1.attr("height") - margin.top - margin.bottom
+	
+	var g1 = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	  
+	  
+	  
   </script>
   </body>
 </html>
