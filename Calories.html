@@ -26,9 +26,11 @@
     //loading data and appending axis
 	  
        d3.csv("cereal.csv", function(d) {
-	       d.mfr = d.mfr
-	       d.cals = d.calories/d.cups
-       }
+	       d.mfr = d.mfr;
+	       d.cals = d.calories/d.cups;
+	       return d;
+       }, function(error, data) {
+ 	 if (error) throw error;
         
 	//setting axis domains based on data
         x.domain(data.map(function(d) { return d.mfr; }));
@@ -75,7 +77,8 @@
 	    .attr("y",150)
 	    .attr("font-size", "20px")
 	    .text("Manufacturer vs Avg Calories")	    
-	    ;
+});
+	  
 </script>
 </body>
 </html>
