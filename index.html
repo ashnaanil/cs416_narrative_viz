@@ -23,7 +23,10 @@
           <a class="nav-link " href="#Intro">Introduction</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#marketvalue">Ratings</a>
+            <a class="nav-link" href="#Ratings">Ratings</a>
+          </li>
+	  <li class="nav-item">
+            <a class="nav-link" href="#Calories">Calories</a>
           </li>
         </ul>
       </div>
@@ -58,52 +61,82 @@
           <h1 class="mb-0"> Average
             <span class="text-primary">Ratings </span>
           </h1>
-          <div class="info mb-5"> Insert Text Describing Chart here
+          <div class="info mb-5"> Insert Text Describing Chart1 here
           </div>
-            <svg id='svg-1' width="600" height="500" float="left" > </svg>
+            <svg id='svg-1' width="700" height="500" float="left" > </svg>
 		
           <article>
             <h4> KEY TAKEAWAYS FROM GRAPH </h4>
             <ul>
-		    <li> Salah is a top goalscorer as he has scored in pretty much all competitions </li>
+		    <li> Add point here </li>
             <ul>
            </article>
-        </div>
-            <p>This Presentation has 2 main slides and one about the visualization slide.</p>
-        </div>
+      </section>
+	      
+      <a class="button" href="#Top" font-size='40px'> Return </a>
+      <a class="button" href="#Calories" font-size='40px'> Next </a>
+      <br/>
+  
+	<section class=" p-3 p-lg-5 d-flex d-column" id="Calories">
+        <div class="my-auto">
+          <h1 class="mb-0"> Average
+            <span class="text-primary">Ratings </span>
+          </h1>
+          <div class="info mb-5"> Insert Text Describing Chart2 here
+          </div>
+            <svg id='svg-2' width="700" height="500" float="left" > </svg>
+		
+          <article>
+            <h4> KEY TAKEAWAYS FROM GRAPH </h4>
+            <ul>
+		    <li> Add point here </li>
+            <ul>
+           </article>
       </section>
 	      
       <a class="button" href="#Top" font-size='40px'> Return </a>
       <br/>
-  
+			    
   </div>
 	
   <script>
-    var svg = d3.select("#svg-1");
+    var svg1 = d3.select("#svg-1");
+    var svg2 = d3.select("#svg-2")   
+     
     var margin = 150;
     //console.log(svg.width)
-    var width = svg.attr("width") - margin
-    var height = svg.attr("height") - margin;
-
+    var width = svg1.attr("width") - margin
+    var height = svg1.attr("height") - margin;
+	  
     //setting x and y axis scales
     var x = d3.scaleBand().range ([0, width]).padding(0.4)
     var y = d3.scaleLinear().range ([height, 0]);
-    
     //initializing group element 
-    var g = svg.append("g")
+
+
+    //setting axis domains based on data
+    x1.domain(data.map(function(d) { return d.mfr; }));
+    y1.domain([0, d3.max(data, function(d) { return d.rating; })]);
+    var g1 = svg1.append("g1")
     .attr("transform", "translate(" + 100 + "," + 100 + ")");
+	  
+	  
+    //setting axis domains based on data
+    x2.domain(data.map(function(d) { return d.mfr; }));
+    y2.domain([0, 180]);
+    //initializing group element 
+    var g2 = svg2.append("g")
+    .attr("transform", "translate(" + 100 + "," + 100 + ")");
+    
     
     //loading data and appending axis
     async function init() {
-	    const data = await d3.csv('cereal.csv');
+      const data = await d3.csv('cereal.csv');
       console.log(data)
-        
-	//setting axis domains based on data
-        x.domain(data.map(function(d) { return d.mfr; }));
-        y.domain([0, d3.max(data, function(d) { return d.rating; })]);
+      
         
 	//appending the x axis
-        g.append("g")
+        g1.append("g1")
          .attr("transform", "translate(0," + height + ")")
          .call(d3.axisBottom(x))
 	 .append("text")
@@ -114,7 +147,7 @@
 	    .text("Manufacturer");
 		
 	//appending the y axis
-        g.append("g")
+        g1.append("g1")
          .call(d3.axisLeft(y).tickFormat(function(d){
              return d;
          }).ticks(10))
@@ -125,12 +158,9 @@
 		  .attr("text-anchor","end")
 	    .attr("stroke", "black")
 	    .text("Rating");
-	
-	 var sum = d3.sum(data, function(d) { return d.rating; });
-	 var avg = sum/data.length;
 	  
 	//adding the bars
-	g.selectAll(".bar")
+	g1.selectAll(".bar")
 	    .data(data)
 	    .enter()
 	    .append("rect")
@@ -141,17 +171,61 @@
 	    .attr("height", function(d) { return height - y(d.rating); });
 	    
 	//adding text element
-	 svg.append("text")
+	 svg1.append("text")
 	    .attr("transform", "translate(100,0)")
 	    .attr("x",50)
 	    .attr("y",50)
 	    .attr("font-size", "20px")
-	    .text("Manufacturer vs Avg Rating")	    
-    };
+	    .text("Manufacturer vs Avg Rating")	  
 	    
+
+ 
+        
+	//appending the x axis
+        g2.append("g2")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(x2))
+	 .append("text")
+	    .attr("x", width - 200)
+	    .attr("y", 30)
+	    .attr("text-anchor", "end")
+	    .attr("stroke", "black")
+	    .text("Manufacturer");
+		
+	//appending the y axis
+        g2.append("g2")
+         .call(d3.axisLeft(y2).tickFormat(function(d){
+             return d;
+         }).ticks(10)) 
+	 .append("text")
+	    .attr("transform", "rotate(-90)")
+	    .attr("y", 5)
+	    .attr("dy", "-5.1em")
+		  .attr("text-anchor","end")
+	    .attr("stroke", "black")
+	    .text("Rating");
 	  
-	  
-	  
+	//adding the bars
+	g2.selectAll(".bar")
+	    .data(data)
+	    .enter()
+	    .append("rect")
+	    .attr("class", "bar")
+	    .attr("x", function(d) { return x(d.mfr); })
+	    .attr("y", function(d) { return y(d.calories); })
+	    .attr("width", x.bandwidth())
+	    .attr("height", function(d) { return height - y2(d.calories); });
+	    
+	//adding text element
+	 svg2.append("text")
+	    .attr("transform", "translate(100,0)")
+	    .attr("x",50)
+	    .attr("y",50)
+	    .attr("font-size", "20px")
+	    .text("Manufacturer vs Avg Calories")	    
+	    
+    };
+	    	  
   </script>
   </body>
 </html>
