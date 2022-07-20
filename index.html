@@ -61,6 +61,7 @@
           <div class="info mb-5"> Insert Text Describing Chart here
           </div>
             <svg id='svg-1' width="600" height="500" float="left" > </svg>
+		
           <article>
             <h4> KEY TAKEAWAYS FROM GRAPH </h4>
             <ul>
@@ -74,12 +75,11 @@
 	      
       <a class="button" href="#Top" font-size='40px'> Return </a>
       <br/>
-  <svg width="600" height="500"></svg>
   
   </div>
 	
   <script>
-    var svg = d3.select("svg");
+    var svg = d3.select("#svg-1");
     var margin = 150;
     //console.log(svg.width)
     var width = svg.attr("width") - margin
