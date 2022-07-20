@@ -4,11 +4,11 @@
     <title> Cereal Manufacturers Analysis </title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
-  <body>
+  <body onload='init()'>
   <h1> This is the relationship between Cereal Manufacturers and the Ratings </h1>
   <svg width="600" height="500"></svg>
   <script>
-
+  
     var svg = d3.select("svg"),
         margin = 200,
         width = svg.attr("width") - margin,
@@ -21,7 +21,8 @@
     var g = svg.append("g")
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-    d3.csv("XYZ.csv", function(error, data) {
+    async function init() {
+	    const data = await d3.csv('XYZ.csv');
       console.log(data)
 
         xScale.domain(data.map(function(d) { return d.year; }));
