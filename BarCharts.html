@@ -22,11 +22,11 @@
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
     async function init() {
-	    const data = await d3.csv('XYZ.csv');
+	    const data = await d3.csv('Cereal.csv');
       console.log(data)
 
-        xScale.domain(data.map(function(d) { return d.year; }));
-        yScale.domain([0, d3.max(data, function(d) { return d.value; })]);
+        xScale.domain(data.map(function(d) { return d.mfr; }));
+        yScale.domain([0, d3.max(data, function(d) { return d.rating; })]);
 
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
