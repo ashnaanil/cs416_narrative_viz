@@ -21,7 +21,7 @@
     
     //initializing group element 
     var g = svg.append("g")
-    .attr("transform", "translate(" + 150 + "," + 150 + ")");
+    .attr("transform", "translate(" + 100 + "," + 100 + ")");
     
     //loading data and appending axis
     async function init() {
@@ -30,7 +30,7 @@
         
 	//setting axis domains based on data
         x.domain(data.map(function(d) { return d.mfr; }));
-        y.domain([0, d3.max(data, function(d) { return d.calories; })]);
+        y.domain([0, 200]);
         
 	//appending the x axis
         g.append("g")
