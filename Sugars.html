@@ -25,11 +25,9 @@
     
     //loading data and appending axis
 	  
-       d3.csv("cereal.csv", function(d) {
-	       d.mfr = d.mfr
-	       d.sugar = d.sugars/d.cups
-       }
-        
+       async function init() {
+	    const data = await d3.csv('cereal.csv');
+	       
 	//setting axis domains based on data
         x.domain(data.map(function(d) { return d.mfr; }));
         y.domain([0, 340]);
@@ -74,8 +72,8 @@
 	    .attr("x",50)
 	    .attr("y",150)
 	    .attr("font-size", "20px")
-	    .text("Manufacturer vs Avg Sugar")	    
-	    ;
+	    .text("Manufacturer vs Avg Sugar")	   
+;
 </script>
 </body>
 </html>
