@@ -55,7 +55,7 @@
 	    .attr("x", function(d) { return x(d.mfr); })
 	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x.bandwidth())
-	    .attr("height", function(d) { return height - y(d3.mean(d.rating)); });
+	    .attr("height", function(d) { return height - y(d.rating); });
 };
 </script>
 </body>
