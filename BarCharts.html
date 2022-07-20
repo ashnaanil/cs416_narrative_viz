@@ -9,23 +9,18 @@
   </head>
   <body onload='init()'>
     <h1> This is the relationship between Cereal Manufacturers and the Ratings </h1>
-    <svg width="300" height="300" id="myid"> 
-    </svg>
-	  <script>
-    async function init() {
-	    const data = await d3.csv("cereal.csv");
-    	console.log(data)
-    	d3.select('svg')
-    	.append("g")
-	    .attr("transform", "translate(150,150)")
-    	.selectAll('circle')
-    	.data(data)
-    	.enter()
-    	.append('circle')
-    	.attr('cx', function(d) { return d.calories;})
-    	.attr('cy', function(d) { return d.rattings;})
-    	.attr('r', function(d) { return 2 + d.cups;});
-    }
-  </script>
+    <svg width="500" height="500"> 
+    </svg> 
+    <script> 
+	    var svg = d3.select("svg")
+	    var margin = 200
+	    var width = svg.attr("width") - margin
+	    var height = svg.attr("height") - margin
+	    
+	    var x = d3.scaleBand().range([0, width]).padding)0.4)
+	    var y = d3.scaleBand().range([height, 0])
+	    
+	    var g = svg.append("g").attr("transform", "translate(" + 100 + "," + 100 + ")");			  
+    </script>
   </body>
 </html>
