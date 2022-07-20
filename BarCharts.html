@@ -29,7 +29,7 @@
       console.log(data)
         
 	//setting axis domains based on data
-        x.domain(data.map(function(d) { return d.mfr; }));
+        x.domain(data.map(function(d) { return d.name; }));
         y.domain([0, d3.max(data, function(d) { return d3.mean(d.rating); })]);
         
 	//appending the x axis
@@ -49,7 +49,7 @@
 	    .enter()
 	    .append("rect")
 	    .attr("class", "bar")
-	    .attr("x", function(d) { return x(d.mfr); })
+	    .attr("x", function(d) { return x(d.name); })
 	    .attr("y", function(d) { return y(d3.mean(d.rating)); })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function(d) { return height - y(d3.mean(d.rating)); });
