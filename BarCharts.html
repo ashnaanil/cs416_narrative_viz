@@ -30,7 +30,7 @@
         
 	//setting axis domains based on data
         x.domain(data.map(function(d) { return d.mfr; }));
-        y.domain([0, d3.max(data, function(d) { return d3.mean(d.rating); })]);
+        y.domain([0, d3.max(data, function(d) { return d.rating; })]);
         
 	//appending the x axis
         g.append("g")
@@ -50,7 +50,7 @@
 	    .append("rect")
 	    .attr("class", "bar")
 	    .attr("x", function(d) { return x(d.mfr); })
-	    .attr("y", function(d) { return y(d.rating); })
+	    .attr("y", function(d) { return y(d3.mean(d.rating)); })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function(d) { return height - y(d.rating); });
 };
