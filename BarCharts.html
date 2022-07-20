@@ -35,13 +35,14 @@
 	//appending the x axis
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(x));
+         .call(d3.axisBottom(x))
 	 .append("text")
 	    .attr("x", width - 50)
 	    .attr("y", height - 50)
 	    .attr("text-anchor", "end")
 	    .attr("stroke", "black")
-	    .text("Manufacturer"
+	    .text("Manufacturer");
+		
 	//appending the y axis
         g.append("g")
          .call(d3.axisLeft(y).tickFormat(function(d){
@@ -53,7 +54,7 @@
 	    .attr("dy", =-5.1em")
 		  .attr("text-anchor","end")
 	    .attr("stroke", "black")
-	    .text("Rating")
+	    .text("Rating");
 	
 	 var sum = d3.sum(data, function(d) { return d.rating; });
 	 var avg = sum/data.length;
