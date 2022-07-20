@@ -22,6 +22,7 @@
                .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
     d3.csv("XYZ.csv", function(error, data) {
+      console.log(data)
         if (error) {
             throw error;
         }
