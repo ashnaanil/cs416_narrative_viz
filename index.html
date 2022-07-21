@@ -50,11 +50,12 @@
 		    <li> Q = Post </li>
 		    <li> R = Quaker Oats </li>
 		    <li> A = Ralston Purina </li>
-            <ul>
-	    <p> Sources </p>
-	    https://d3-graph-gallery.com/graph/scatter_basic.html
-	    </br>
-	    https://www.kaggle.com/datasets/crawford/80-cereals
+            </ul>
+	    <h3> Sources </h3>
+	    <ul>
+		    <li>  https://d3-graph-gallery.com/graph/scatter_basic.html
+		    <li>  https://www.kaggle.com/datasets/crawford/80-cereals
+	    </ul>
       </article>
       <br>
 	      <div id = "top10"> </div>
@@ -268,7 +269,7 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return d.name + "manufactured by " + d.mfr +  "has a rating of " + d.rating;
+        return d.name + " manufactured by " + <font color="#27619c"> d.mfr </font>  +  "has a rating of " + <font color="#26781d> d.rating </font>;
       });
     });
 	
