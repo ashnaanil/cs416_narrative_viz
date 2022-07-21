@@ -219,6 +219,8 @@
       var dataSum = d3.sum(data, function(d) {
  	 return d.rating;
       });
+      var x2 = d3.scale.ordinal().rangeBands([0, width], 0);
+
 
     g3.append("line")
     .attr("x1", x2(1))
