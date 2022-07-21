@@ -55,7 +55,6 @@
 	    https://d3-graph-gallery.com/graph/scatter_basic.html
 	    </br>
 	    https://www.kaggle.com/datasets/crawford/80-cereals
-	    <body id="top10">	</body>
       </article>
       <br>
       <a class="button" href="#Stats" font-size='40px'> Next </a>
@@ -262,7 +261,7 @@ d3.csv("cereal.csv", function(d) {
     var topData = data.sort(function(a, b) {
           return d3.descending(+a.rating, +b.rating);
        }).slice(0, 10);//top 10 here
-    var p = d3.select("#top10")
+    var p = d3.select("body")
       .selectAll("p")
       .data(topData)
       .enter()
