@@ -1,6 +1,6 @@
 @media (min-width:900px){
   body{
-    padding-top:0;padding-left:20rem
+    padding-top:0;padding-left:15rem
   }
 }
 
@@ -13,11 +13,11 @@
   #sideNav{
     text-align:center;
     position:fixed;
-    top:50;
+    top:200;
     left:0;
     display:flex;
     flex-direction:column;
-    width:20rem;
+    width:15rem;
     height:100vh
   }
 }}
