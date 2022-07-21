@@ -280,7 +280,7 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
 
 
       x0.domain(data.map(function(d) { return d.mfr; }));
-      y.domain([0, d3.max(data, function(d) { return d.calories; })]);
+      y.domain([0, 200]);
 
       g2.append("g")
 	 .selectAll(".bar")
