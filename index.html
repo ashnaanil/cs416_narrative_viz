@@ -57,6 +57,7 @@
 	    https://www.kaggle.com/datasets/crawford/80-cereals
       </article>
       <br>
+	      <p id = "top10"> </p>
       <a class="button" href="#Stats" font-size='40px'> Next </a>
 	<br>
        <a class="button" href="#Top" font-size='40px'> Return </a>
@@ -261,7 +262,7 @@ d3.csv("cereal.csv", function(d) {
     var topData = data.sort(function(a, b) {
           return d3.descending(+a.rating, +b.rating);
        }).slice(0, 10);//top 10 here
-    var p = d3.select("body")
+    var p = d3.select("#top10")
       .selectAll("p")
       .data(topData)
       .enter()
