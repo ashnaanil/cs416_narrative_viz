@@ -235,7 +235,7 @@
           .append("text")
           .attr("fill", "#000")
           .attr("transform", "rotate(-90)")
-          .attr("y", -10)
+          .attr("y", -15)
           .attr("dy", "1em")
           .attr("text-anchor", "end")
           .text("Calories");
@@ -259,7 +259,7 @@ d3.csv("cereal.csv", function(d) {
 },  function(error, data) {
         if (error) throw error;
     var topData = data.sort(function(a, b) {
-          return d3.descending(+a.name, +b.name);
+          return d3.descending(+a.rating, +b.rating);
        }).slice(0, 10);//top 10 here
     var p = d3.select("body")
       .selectAll("p")
@@ -267,7 +267,7 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return d.name;
+        return d.name + " has a rating of " + d.rating;
       });
     });
 	
