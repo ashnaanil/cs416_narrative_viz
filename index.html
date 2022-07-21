@@ -197,7 +197,7 @@
 	    .attr("x", function(d) { return x(d.mfr); })
 	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x.bandwidth())
-	    .attr("height", function(d) { return height - y(d.rating); });   	    
+	    .attr("height", function(d) { return height - y(d.rating); });   	  
       g3.append("g")
           .attr("class", "axis")
           .call(d3.axisBottom(x))
@@ -230,7 +230,7 @@ d3.csv("cereal.csv", function(d) {
 },  function(error, data) {
         if (error) throw error;
       var topData = data.sort(function(a, b) {
-          return d3.descending(+a.name, +b.name);
+          return d3.descending(+a.rating, +b.calories);
        }).slice(0, 10);//top 10 here
      var p = d3.select("body")
       .selectAll("p")
@@ -260,7 +260,7 @@ d3.csv("cereal.csv", function(d) {
 	    .style("fil", "#69b3a2")
       g4.append("g")
           .call(d3.axisLeft(y1))
-        .append("text")
+          .append("text")
           .attr("fill", "#000")
           .attr("transform", "rotate(-90)")
           .attr("y", 6)
@@ -269,7 +269,8 @@ d3.csv("cereal.csv", function(d) {
           .text("Calories");
      g4.append("g")
           .call(d3.axisBottom(x1))
-        .append("text")
+          .attr("transform", "translate(0," + height + ")")
+          .append("text")
           .text("Ratings");
      
     });
