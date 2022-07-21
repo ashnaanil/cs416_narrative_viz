@@ -211,6 +211,17 @@
           .attr("font-weight", "bold")
           .attr("text-anchor", "start")
           .text("Ratings");   
+	   
+	    var dataSum = d3.sum(data, function(d) {
+  		return d.rating;
+	   });
+	   console.log(datasum)
+	    
+	g3.append("line")
+	    .attr("x1", x(1))
+	    .attr("x2", width)
+	    .attr("y1", y(dataSum / data.length))
+	    .attr("y2", y(dataSum / data.length));
     });
 	
     //ratings vs calories
