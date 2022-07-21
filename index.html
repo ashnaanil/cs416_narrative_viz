@@ -28,15 +28,16 @@
 	</div>
   </nav>
 	
-	
 <div>
       <section id="Overview">
       	<h1> Overview </h1>
           <div>
-		  Vizualiation about factors such as average rating, calories, sugars etc... of cereals by cereal manufacturers.
+		  This is a Vizualiation about Cereal Manuactures and details such as the top 10 cereals by rating, highest ratings, highest calories, relationship between the ratings and the calories etc..
+		  <br>
+		  The main aim of this is to understand the top rated items from the cereal manufacures ans see the relationship between this rating and other factors such as calories, sugars, vitamins etc..
           </div>
       <article>
-            <h4> CEREAL MANUFACTURERS </h4>
+            <h4> CEREAL MANUFACTURERS APPENDIX </h4>
             <ul>
 		    <li> A = American Home Food Products </li>
 		    <li> K = General Mills </li>
@@ -46,13 +47,9 @@
 		    <li> R = Quaker Oats </li>
 		    <li> A = Ralston Purina </li>
             </ul>
-	    <h3> Sources </h3>
-	    <ul>
-		    <li>  https://d3-graph-gallery.com/graph/scatter_basic.html
-		    <li>  https://www.kaggle.com/datasets/crawford/80-cereals
-	    </ul>
       </article>
       <br>
+<h3> Top 10 Cereals/Mfr's by Ratings! As we can see here the highest is All-Bran with Extra Fiber by Khas. This is seen in the chart on the Mfr Statistics as well.
 	      <div id = "top10"> </div>
       <a class="button" href="#Stats" font-size='40px'> Next </a>
 	<br>
@@ -68,8 +65,8 @@
             <svg id='svg-2' width='1000' height="600"float="left" ></svg>
             <svg id='svg-3' width='1000' height="600"float="left" display='none'></svg>
 	    <br>
-            <button class='button' onclick="showcalories();" > Manufacturer By Calories </button>
-            <button class='button' onclick="showratings();">Manufacturer By Ratings </button>
+            <button class='button' onclick="showcalories();" > Manufacturer By Highest Calories </button>
+            <button class='button' onclick="showratings();">Manufacturer By Highest Ratings </button>
 	    <br>
 	    <a class="button" href="#marketvalue" font-size='40px'> Next </a>
 	    <br>
@@ -79,7 +76,7 @@
 
 <div>
    <section class=" p-3 p-lg-5 d-flex d-column" id="marketvalue">
-          <h2>Market Value</h2>
+          <h2>Factors that might affect the Ratings</h2>
           <svg id='svg-4' width='1000' height="600"float="left"></svg>
           <h4> This indicates the relationship between Ratings and Calories </h4>
 	  <br>
@@ -88,6 +85,12 @@
           <a class="button" href="#Top" font-size='40px'> Return </a>
 	</section>
 </div>
+
+<h3> Sources </h3>
+	    <ul>
+		    <li>  https://d3-graph-gallery.com/graph/scatter_basic.html
+		    <li>  https://www.kaggle.com/datasets/crawford/80-cereals
+	    </ul>
 		
 <script src="https://d3js.org/d3.v4.min.js"></script>	      
 <script>
