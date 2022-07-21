@@ -255,19 +255,18 @@ d3.csv("cereal.csv", function(d) {
     return d;
 },  function(error, data) {
         if (error) throw error;
-      var topData = data.sort(function(a) {
-          return d3.descending(+a.rating);
+    var topData = data.sort(function(a, b) {
+          return d3.descending(+a.name, +b.name);
        }).slice(0, 10);//top 10 here
-     var p = d3.select("body")
+    var p = d3.select("body")
       .selectAll("p")
       .data(topData)
-     console.log(topData)
       .enter()
       .append("p")
       .text(function(d){
-        return d.name + " has a rating of" + d.rating;
+        return d.name;
       });
- });
+    });
 	
 
     </script>
