@@ -3,11 +3,6 @@
     padding-top:0;padding-left:17rem
   }
 }
-h1,h2,h3,h4,h5,h6{
-  font-family:'Saira Extra Condensed', serif;
-  font-weight:500;
-  text-transform:uppercase;
-}
 
 #sideNav .navbar-nav .nav-item .nav-link{
   font-weight:600;
@@ -26,12 +21,6 @@ h1,h2,h3,h4,h5,h6{
   }
 }}
 
-.bg-primary{
-  background-color:#bd5d38!important
-}
-.text-primary{
-  color:#bd5d38!important
-}
 a{
   color:#bd5d38
 }
