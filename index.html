@@ -262,7 +262,7 @@ d3.csv("cereal.csv", function(d) {
     var topData = data.sort(function(a, b) {
           return d3.descending(+a.rating, +b.rating);
        }).slice(0, 10);//top 10 here
-    var p = d3.select("top10")
+    var p = d3.select("#top10")
       .selectAll("p")
       .data(topData)
       .enter()
