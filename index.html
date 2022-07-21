@@ -56,11 +56,11 @@
 		    </br>
 		    https://www.kaggle.com/datasets/crawford/80-cereals
       </article>
-      <br/>
+      <br>
       <a class="button" href="#Stats" font-size='40px'> Next </a>
-	<br/>
+	<br>
        <a class="button" href="#Top" font-size='40px'> Return </a>
-      <br/>
+      <br>
       </section>
 </div>
 	      
@@ -81,9 +81,9 @@
           <h2>Market Value</h2>
             <svg id='svg-4' width='1000' height="600"float="left"></svg>
             <h4> This indicates the relationship between Ratings and Calories </h4>
-	  /br>
+	  <br>
           <a class="button" href="#Sources" font-size='40px'> Next </a>
-          <br/>
+          <br>
           <a class="button" href="#Top" font-size='40px'> Return </a>
 	</section>
 </div>
@@ -253,8 +253,8 @@ d3.csv("cereal.csv", function(d) {
     return d;
 },  function(error, data) {
         if (error) throw error;
-      var topData = data.sort(function(d) {
-          return d3.descending(d.rating);
+      var topData = data.sort(function(a) {
+          return d3.descending(+a.rating);
        }).slice(0, 10);//top 10 here
      var p = d3.select("body")
       .selectAll("p")
