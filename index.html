@@ -51,8 +51,9 @@
       <br>
 	      <h3> Top 10 Cereals/Mfr's by Ratings! </h3>
 	      <div id = "top10"> </div>
-	      <div font-size='50px'> As we can see here the highest is All-Bran with Extra Fiber by Khas. 
-		      <br> This is seen in the chart in the Cereal Manufacturer Statistics Section as well. <div>
+	      <h4> As we can see here the highest is All-Bran with Extra Fiber by Khas. 
+		      <br> This is seen in the chart in the Cereal Manufacturer Statistics Section as well. </hr>
+	      <br>
       <a class="button" href="#Stats" font-size='40px'> Next </a>
 	<br>
        <a class="button" href="#Top" font-size='40px'> Return </a>
@@ -80,14 +81,21 @@
    <section class=" p-3 p-lg-5 d-flex d-column" id="marketvalue">
           <h2>Factors that might affect the Ratings</h2>
           <svg id='svg-4' width='1000' height="600"float="left"></svg>
+	   <svg id='svg-5' width='1000' height="600"float="left"></svg>
           <h4> This indicates the relationship between Ratings and Calories </h4>
 	  <br>
+	   <br>
+            <button class='button' onclick="showratings_vs_cals();" > Calories </button>
+            <button class='button' onclick="showratings_vs_sugars();"> Sugars </button>
+	    <br>
           <a class="button" href="#Sources" font-size='40px'> Next </a>
           <br>
           <a class="button" href="#Top" font-size='40px'> Return </a>
 	</section>
 </div>
 
+	
+	
 <h3> Sources </h3>
 	    <ul>
 		    <li>  https://d3-graph-gallery.com/graph/scatter_basic.html
@@ -113,10 +121,27 @@
        	z.style.display="none"
     }
 
+// show the ratings vs calories graph
+    function showratings_vs_cals(){
+     	var y = document.getElementById("svg-4")
+     	y.style.display="none"
+     	var z=document.getElementById("svg-5")
+     	z.style.display="block"
+     }
+
+// show the ratings vs sugars graph
+    function showratings_vs_sugars(){
+       	var y = document.getElementById("svg-4")
+       	y.style.display="block"
+       	var z=document.getElementById("svg-5")
+       	z.style.display="none"
+    }
+
   // declaring svgs
   var svg2 = d3.select("#svg-2") 
   var svg3 = d3.select('#svg-3') 
   var svg4 = d3.select('#svg-4') 
+  var svg5 = d3.select('#svg-5') 
   
   // setting parameters
   var margin = {top: 10, right: 30, bottom: 40, left: 70}
@@ -127,6 +152,7 @@
   var g2 = svg2.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g3 = svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g4 = svg4.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g5 = svg5.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   // declaring scales
   var x = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
@@ -262,6 +288,43 @@
      
     });
 	
+
+    //ratings vs sugars
+    d3.csv("cereal.csv", function(d) {
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+      g5.append("g")
+	    .selectAll("dot")
+	    .data(data)
+	    .enter()
+	    .append("circle")
+	    .attr("cx", function(d) {return x1(d.rating); })
+	    .attr("cy", function(d) {return y1(d.sugars); })
+	    .attr("r", 1.5)
+	    .style("fil", "#69b3a2")
+      g5.append("g")
+          .call(d3.axisLeft(y1))
+          .append("text")
+          .attr("fill", "#000")
+          .attr("transform", "rotate(-90)")
+          .attr("y", -15)
+          .attr("dy", "1em")
+          .attr("text-anchor", "end")
+          .text("Sugars");
+     g5.append("g")
+          .call(d3.axisBottom(x1))
+	  .attr("transform", "translate(-5," + height + ")")
+	  .append("text")
+          .attr("x",width/2)
+          .attr("y",-5)
+          .attr("fill","#000")
+          .attr("font-weight","bold")
+          .attr("text-anchor","start")
+          .text("Ratings");
+     
+    });
+
 	
 //selecting top10	
 d3.csv("cereal.csv", function(d) {
