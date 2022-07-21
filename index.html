@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CS 416 - Cereals Narrative Viz</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-	  
-  </head>
-  <body id="Top">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Mohamed salah player analysis">
+<meta name="author" content="rohank2">
+<title> CS 498 Final Project. Rohank2</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="css/salah.min.css" rel="stylesheet">
+</head>
+
+<body id="Top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="cereal-ranked.jpg" width="300" height = "200" alt="">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/mohamedsalah.jpg" alt="">
         </span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,220 +24,735 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-          <a class="nav-link " href="#Intro">Introduction</a>
+          <a class="nav-link " href="#Aboutviz">About the Visualization</a>
+          </li>
+        <li class="nav-item">
+ <a class="nav-link " href="#Overview">Career Overview</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#Ratings">Ratings</a>
+            <a class="nav-link " href="#17-18">Liverpool 17-18</a>
           </li>
-	  <li class="nav-item">
-            <a class="nav-link" href="#Calories">Calories</a>
+          <li class="nav-item">
+            <a class="nav-link" href="#marketvalue">Market Value</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#PlayerComparison">Player Comparison</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Sources">Sources</a>
+          </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#MoreInfo">More Info About Visualization</a>
+        </li>
+
+
+
         </ul>
       </div>
     </nav>
-
-	
 <div class="container-fluid p-0">
-      <section class="p-3 p-lg-5 d-flex d-column" id="Intro">
-        <div class="my-auto">
-        <article>
-        Hello everyone and welcome to my simple visualization. 
-	<br/>
-	I have created a visualization that talks Cereal Manufacturers and statistics about their cereals such as Avergae Ratings, Calories, Sugars etc..
-	<br/>
 
-        <h3> MAIN AIM: </h3> 
-	<p> To analyze the data and spot trends or patterns between cereal manufacturers and other paramters </p>
+      <section class="p-3 p-lg-5 d-flex d-column" id="Aboutviz">
+        <div class="my-auto">
+      <article>
+        Hello everyone and welcome to my simple visualization. <br/>I have created a visualization that talks about the rise in prominence of the Egyptian soccer star
+        Mohamed Salah.<br/>
+
+        <h3> MAIN AIM: </h3> <p> To see how good salah's <strong>17-18</strong> season was and visualize his market value to understand how even ONE good season can significantly increase transfer value in football.  </p>
         <br/>
         <h3> Grading rubric </h3>
-        I have included a list of sources that I referenced code from for this project.
-	<br/>
-        For this project I used d3.js, html and css.
-	<br/>
-        </article>
+        I have included a list of sources that I referenced code from for this project.<br/>
+        For this project I used d3.js, bootstrap, html and css.<br/>
 
-	<a class="button" href="#Ratings" font-size='40px'> Next </a>
+        <h3> Hyprid Structure used: </h3>
+        I have used the <strong> TOP DOWN INTERACTIVE SLIDESHOW </strong> hybrid structure to present my information.<br/>
+        The slides are ordered from Top to Bottom
+        I have 5 slides including this one. The Narrative Structure starts of with a career overview of Mohamed Salah.
+         It then Moves on to his goals scored, where a user can interact and choose between two charts which indicate his goals scored by position and goals scored by competitions
+        The user can then look at how the market value of salah has increased over the years.
+        <br/>
+        <h3> Triggers </h3> </br>
+
+        You can click through to different sections which change the visualization on the page. <br/>
+        You can click buttons to see decide the parameters for his liverpool season <br/>
+        You can toggle year to see how many goals salah scored as compared to his competetitors in the last few years.
+        <h3> Parameters </h3> </br>
+        In his breakthrough season, you can decide the parameters by which you want to see the visualization. Goals scored by position or goals scored by competition </br>
+        You can also see how he fared based on the time parameter, that is, how did he compare to others in seasons before this one.
+        <h3> Annotations </h3>
+        Highlighted part of data in line chart which indicated exponential increase in transfer value. this can be tied back to the 2017-18 season and a user can understand how crazily the transfer values increase.
+        The highlighted part indicated that he just  needed ONE SEASON to exponentiate his value. Even though he played well in the time his value was rising, the one season caused a big jump in the fee.
+
+
+
+      </br>
+
+
+   <a class="button" href="#MoreInfo" font-size='100px'> MoreInfo </a>
+      </article>
+
+
+           <a class="button" href="#Overview" font-size='40px'> Next </a>
         </div>
       </section>
 
-      <section class=" p-3 p-lg-5 d-flex d-column" id="Ratings">
+      <section class=" p-3 p-lg-5 d-flex d-column" id="Overview">
         <div class="my-auto">
-          <h1 class="mb-0"> Average
-            <span class="text-primary">Ratings </span>
+          <h1 class="mb-0">Mohamed
+            <span class="text-primary">Salah</span>
           </h1>
-          <div class="info mb-5"> Insert Text Describing Chart1 here </div>
-             <svg id='svg-1' width="700" height="500" float="left" > </svg>
-		
-          <article>
-            <h4> KEY TAKEAWAYS FROM GRAPH </h4>
-            <ul>
-		    <li> Add point here </li>
-            <ul>
-           </article>
-		    </div>
-      </section>
-	      
-      <a class="button" href="#Top" font-size='40px'> Return </a>
-      <a class="button" href="#Calories" font-size='40px'> Next </a>
-      <br/>
-  
-	<section class=" p-3 p-lg-5 d-flex d-column" id="Calories">
-        <div class="my-auto">
-          <h1 class="mb-0"> Average
-            <span class="text-primary">Ratings </span>
-          </h1>
-          <div class="info mb-5"> Insert Text Describing Chart2 here
+          <div class="info mb-5">Age: 26, Place of Birth: Nagrig, Egypt, Height: 5gt 9 in, Current Team: Liverppol, Number: 11
           </div>
-            <svg id='svg-2' width="700" height="500" float="left" > </svg>
-		
+            <svg id='svg-1' width="900" height="400" float="left" ></svg>
+
           <article>
             <h4> KEY TAKEAWAYS FROM GRAPH </h4>
             <ul>
-		    <li> Add point here </li>
+              <li> Salah is a top goalscorer as he has scored in pretty much all competitions </li>
+              <li> Salah had an ok Appreances to goals ratio but in the PLS2 he did amazing and gained prominence. Its now time to see how significant this season was to his current stature </li>
             <ul>
            </article>
         </div>
-			   
       </section>
-	      
+         <a class="button" href="#17-18" font-size='40px'> Next </a>
+         <br/>
+         <br/>
+
+      <section class=" p-3 p-lg-5 d-flex d-column" id="17-18">
+        <div class="my-auto">
+          <h1 class="mb-0">Liverpool 17-18 Season
+          </h1>
+
+
+          <svg id='svg-2' width='1000' height="400"float="left" ></svg>
+          <svg id='svg-3' width='1000' height="400"float="left" display='none'></svg>
+         <button class='button' onclick="showposition();" > Goals By Position </button>
+         <button class='button' onclick="showcompetition();">Goals By Competition </button>
+         <h4> KEY TAKEAWAYS </h4>
+         <ul>
+           <li> Plays at his best on forward right  </li>
+           <li>Scored a high proportion of his goals in the two most important competitions-the UCL and the Premier league </li>
+           <li> This indicates that he can perform at the highest level </li>
+         <ul>
+        </div>
+      </section>
+         <a class="button" href="#marketvalue" font-size='40px'> Next </a>
+         <br/>
+         <br/>
+      <section class=" p-3 p-lg-5 d-flex d-column" id="marketvalue">
+        <div class="my-auto">
+          <h1 class="mb-0">Market Value
+
+          </h1>
+
+
+            <svg id='svg-4' width='900' height="400"float="left"></svg>
+            <h4> KEY TAKEAWAYS </h4>
+            <ul>
+              <li> The HIGHLIGHTED PART indicates how fast value can rise in football. </li>
+              <li>even when he was playing well between 2014-17 his value increased minimally but one good season with 44 goals and his transfer value skyrockets </li>
+            <ul>
+
+        </div>
+      </section>
+      <a class="button" href="#PlayerComparison" font-size='40px'> Next </a>
+      <br/>
+      <br/>
+      <section class=" p-3 p-lg-5 d-flex d-column" id="PlayerComparison">
+        <div class="my-auto">
+          <h1> Players Vs goals scored</h1>
+          <p> Choose an option: </p>
+                  <div class='radio'>
+                    <label class='radio-inline'>
+                      <input type="radio" name="year" value="15/16" onclick='toggle(this.value)'> 15/16
+                    </label>
+                    <label class='radio-inline'>
+                      <input type="radio" name="year" value="16/17" onclick='toggle(this.value)'> 16/17
+                    </label>
+                    <label class='radio-inline'>
+                      <input type="radio" name="year" value="17/18" onclick='toggle(this.value)'> 17/18
+                    </label>
+                  </div>
+              <svg class='comp'>
+              </svg>
+              <h4> KEY TAKEAWAYS OVERALL </h4>
+              <ul>
+                <li> Harry Kane has consistently scored a lot of goals each season. Salah on the other hand has had one phenominal season </li>
+                <li>He has definately performed way better than hazard but needs to now be consistent over the next few seasons  </li>
+
+              <ul>
+                <div id="div1" display="none">
+                <h4> KEY TAKEAWAYS 15/16 </h4>
+                <ul>
+                  <li> Salah was better than hazard but worse than Kane </li>
+
+
+                <ul>
+                </div>
+                <div id="div2" display="none">
+
+                  <h4> KEY TAKEAWAYS 16/17 </h4>
+                  <ul>
+                    <li>Kane Tops again</li>
+                    <li> Salah scores more goals than last season which would help his transfer value </li>
+                    <li> Comes second behind Kane in goals scored </li>
+
+               </div>
+               <div id="div3" display="none">
+
+                  <ul>
+                    <h4> KEY TAKEAWAYS 17/18 </h4>
+                    <ul>
+                      <li>Salah has a phenominal 17-18 season</li>
+                      <li> Transfer value rises greatly </li>
+                      <li> Top goalscorer </li>
+
+
+                    <ul>
+
+               </div>
+
+        </div>
+      </section>
+
+      <br/>
+      <br/>
+      <section class=" p-3 p-lg-5 d-flex d-column" id="Sources">
+        <div class="my-auto">
+          <h1 class="mb-0">SOURCES
+
+          </h1>
+            <ul>
+              <li> https://startbootstrap.com/template-overviews/resume/ </li>
+              <li> https://bl.ocks.org/mbostock/3887051 </li>
+              <li>https://bl.ocks.org/mbostock/3883245</li>
+              <li> Data from https://www.transfermarkt.co.uk/ </li>
+
+        </div>
+      </section>
+      <section class=" p-3 p-lg-5 d-flex d-column" id="MoreInfo">
+        <div class="my-auto">
+          <h1 class="mb-0">MoreInfo
+
+          </h1>
+            <p>This Presentation has 4 main slides and one about the visualization slide. There is a next button between each slide that takes the user to the next visualization. Slide 1 gives the user a brief intro to the project and gives some details about the visualization. From here the user understands what the visualization is about and what he/she can do to interact with the charts. The interactive slideshow starts off with a career overview and some basic information of salah. I used a grouped bar chart to indicate the number of goals, appearences and assists he had in each competition. The slide is meant to give an observer some preliminary information about the player. I tried to arrange the graph from the cups he scores least in to the cups he scores most in to make it easy to visualize. the second slide is an Interactive slide. The User now can understand more about how salah is as a player. Moreover, they can study about his 17-18 season, which was his breakthrough season. The author can now either move onto the next slide by hitting next or choose one of the buttons to see a grouped bar chart visualization. The first visualization is his performance by position. It shows how well he plays based on the different positions he has been put it. The second one on the other hand shows his performance by competition. I tried to keep the legend consistant with that of the previous graph, So it would be easier for people to transition. The third slide talks about salah's market value over the years. Salah's value has significantly gone up over the years. Here a key part of the data is highlighted which indicated the increase in revenue from 2014 onwards when he started playing for the bigger clubs. More importantly the highlighted region shows the steep rise in market value in 17-18. The 4th and final slide has a year by year comparision (of the last 3 years) between salah and two of the best epl players - Harry Kane and Eden hazard. The user can choose which year he/she wants to view. while toggling the year the graph changes. The information below th graph also changes. It is a good way for the user to understand the consistency levels of Mohamed Salah.</p>
+
+        </div>
+      </section>
       <a class="button" href="#Top" font-size='40px'> Return </a>
       <br/>
-			    
+      <br/>
+
+
 </div>
-	
-  <script>
-    var svg1 = d3.select("#svg-1");
-    var svg2 = d3.select("#svg-2")   
-     
-    var margin = 150;
-    //console.log(svg.width)
-    var width = svg1.attr("width") - margin
-    var height = svg1.attr("height") - margin;
-	  
-    //setting x and y axis scales
-    var x1 = d3.scaleBand().range ([0, width]).padding(0.4)
-    var y1 = d3.scaleLinear().range ([height, 0]);
-    var x2 = d3.scaleBand().range ([0, width]).padding(0.4)
-    var y2 = d3.scaleLinear().range ([height, 0]);
-    //initializing group element 
 
 
-    var g1 = svg1.append("g1")
-    .attr("transform", "translate(" + 100 + "," + 100 + ")");
-	  
 
-    //initializing group element 
-    var g2 = svg2.append("g")
-    .attr("transform", "translate(" + 100 + "," + 100 + ")");
-    
-    
-    //loading data and appending axis
-    d3.csv("cereal.csv", function(d) {
+    </div>
+
+
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+
+<script>
+var Season = [
+{
+    "player":"Mohamed Salah",
+    "Goals":"15",
+    "Year":"2015/16"
+},
+{
+    "player":"Mohamed Salah",
+    "Goals":"19",
+  "Year":'2016/17'
+},
+{
+    "player":"Mohamed Salah",
+  "Goals":"44",
+  "Year":"2017/18"
+  },
+  {
+    "player":"Harry Kane",
+    "Goals":"28",
+    "Year":"2015/16"
+},
+  {
+    "player":"Harry Kane",
+"Goals":"35",
+    "Year":"2016/17"
+
+    },
+{
+    "player":"Harry Kane",
+        "Goals":"41",
+"Year":"2017/18"
+     },
+{
+        "player":"Eden Hazard",
+  "Goals":"6",
+      "Year":"2015/16"
+},
+   {
+  "player":"Eden Hazard",
+     "Goals":"17",
+         "Year":"2016/17"
+},
+   {
+       "player":"Eden Hazard",
+"Goals":"17",
+       "Year":"2017/18"
+},
+];
+
+
+
+
+
+var s1617 =[];
+
+var s1718=[];
+
+var  s1516=[];
+
+
+
+
+
+
+
+for (var i=0; i<Season.length;i++){
+
+
+
+
+
+  if(Season[i]["Year"]==="2016/17"){
+
+    s1617.push(Season[i])}
+  else if (Season[i]["Year"]==="2017/18") {
+
+    s1718.push(Season[i]);
+
+  }
+  else {
+    s1516.push(Season[i]);
+  }
+}
+
+function toggle(option){
+  var temp1 = document.getElementById("div1");
+  var temp2=document.getElementById("div2");
+  var temp3=document.getElementById("div3");
+  if(option==="15/16"){
+    ordergraph(s1516);
+    temp1.style.display='block';
+    temp2.style.display='none';
+    temp3.style.display='none';
+  }
+  else if(option=="16/17"){
+    ordergraph(s1617);
+    temp1.style.display='none';
+    temp2.style.display='block';
+    temp3.style.display='none';
+  }
+  else{
+
+    ordergraph(s1718);
+    temp1.style.display='none';
+    temp2.style.display='none';
+    temp3.style.display='block';
+  }
+}
+
+function ordergraph(data){
+bx.domain(data.map(function(d){ return d.player;}));
+
+
+ by.domain( [0, d3.max(data, function(d){ return +d.Goals; })] );
+var bw = bwidth/data.length;
+  var b = comp.selectAll(".bar").remove().exit().data(data);
+
+
+  b.enter().append("rect").attr("class", "bar").attr("x", function(d, i){ return i * bw + 1 }).attr("y", function(d){ return by( d.Goals); })
+  		.attr("height", function(d){ return bheight - by(d.Goals); })
+  		.attr("width", bw - 1)
+  		.attr("fill", function(d){
+
+if(d.player=='Mohamed Salah'){
+      return "rgb(251,180,174)"
+
+    }
+else if (d.player =="Eden Hazard"){
+            return "rgb(0,0,360)";
+    }
+      else {
+    return "rgb(179,205,227)";
+    }
+  });
+
+
+
+
+	comp.select('.y')
+		  .call(yAxis)
+	comp.select('.xAxis')
+		.attr("transform", "translate(0," + bheight + ")")
+		.call(xAxis)
+		.selectAll("text")
+			.style("text-anchor", "end")
+			.attr("dx", "-.8em")
+			.attr("dy", ".15em")
+			.attr("transform", function(d){
+				return "rotate(-65)";
+			});
+}
+
+//set up chart
+var bmargin = {top: 20, right: 20, bottom: 95, left: 50};
+var bwidth = 800;
+var bheight = 500;
+
+var comp = d3.select(".comp")
+				.attr("width", bwidth + bmargin.left + bmargin.right)
+				.attr("height", bheight + bmargin.top + bmargin.bottom)
+				.append("g")
+				.attr("transform", "translate(" + bmargin.left + "," + bmargin.top + ")");
+
+var bx = d3.scaleBand().rangeRound([0, bwidth]).paddingInner(0.1);
+var by = d3.scaleLinear().rangeRound([bheight, 0]);
+
+var xAxis = d3.axisBottom(bx);
+var yAxis = d3.axisLeft(by);
+	comp.append("g").attr("class", "y axis").call(yAxis)
+
+
+
+
+comp.append("text").attr("transform", "translate(" + (bwidth/2) + "," + (bheight + bmargin.bottom - 5) + ")").text("player-names");
+
+
+
+comp.append("text").attr("transform", "translate(-35," +  (bheight+bmargin.bottom)/2 + ") rotate(-90)").text("goals");
+comp.append("g").attr("class", "xAxis").attr("transform", "translate(0," + bheight + ")").call(xAxis).selectAll("text").style("text-anchor", "end").attr("transform", function(d){
+				return "rotate(-70)";
+			});
+
+// show the position graph
+    function showposition(){
+     var y = document.getElementById("svg-2")
+     y.style.display="none"
+     var z=document.getElementById("svg-3")
+     z.style.display="block"
+
+
+     }
+
+// show the competition graph
+
+
+
+     function showcompetition(){
+       var y = document.getElementById("svg-2")
+       y.style.display="block"
+       var z=document.getElementById("svg-3")
+       z.style.display="none"
+     }
+
+
+// declare the svgs
+var svg1 = d3.select("#svg-1")  // salah summary svg
+  var svg2=d3.select("#svg-2")  // salah position svg
+      var svg3=d3.select('#svg-3') // salah competition svg
+  var svg4=d3.select('#svg-4')// salah market value svg
+  var margin = {top: 10, right: 30, bottom: 40, left: 70}
+    var width = +svg1.attr("width") - margin.left - margin.right
+  var height = +svg1.attr("height") - margin.top - margin.bottom
+    var g1 = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g2=svg2.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g3=svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var  g4 = svg4.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+
+  var parseTime = d3.timeParse("%d-%b-%y");
+  var x = d3.scaleTime()
+      .rangeRound([0, width]);
+  var y1 = d3.scaleLinear()
+      .rangeRound([height, 0]);
+  var line = d3.line().x(function(d) { return x(d.Date); }).y(function(d) { return y1(d.Value); });
+var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
+var x1 = d3.scaleBand().padding(0.05);
+var y = d3.scaleLinear().rangeRound([height, 0]);
+var z = d3.scaleOrdinal().range(["#FF0000","#FFA500", "#8a89a6","#0000FF","#4CBB17"]);
+d3.csv("salahcareer.csv", function(d, i, columns) {
+for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+    return d;},
+    function(error, data) {
+        if (error) throw error;
+
+      var keys = data.columns.slice(1); // takes columns from the 1st one
+      //console.log(keys)
+
+      x0.domain(data.map(function(d) { return d.Competition; }));
+      x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+      y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+      g1.append("g")
+        .attr("class","chartclass")
+        .selectAll("g")
+        .data(data)
+        .enter().append("g")
+          .attr("transform", function(d) { return "translate(" + x0(d.Competition) + ",0)"; })
+        .selectAll("rect")
+        .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+        .enter().append("rect")
+          .attr("x", function(d) { return x1(d.key); })
+          .attr("y", function(d) { return y(d.value); })
+          .attr("width", x1.bandwidth())
+          .attr("height", function(d) { return height - y(d.value); })
+          .attr("fill", function(d) { return z(d.key); });
+
+      g1.append("g")
+          .attr("class", "axis")
+          .call(d3.axisBottom(x0))
+          .attr("transform", "translate(0," + height + ")")
+          .append("text")
+          .attr("x",2)
+          .attr("y",0)
+          .attr("fill","#000")
+          .attr("font-weight","bold")
+          .attr("text-anchor","start")
+          .text(function(d) {return d;});
+
+      g1.append("g")
+          .attr("class", "axis")
+          .call(d3.axisLeft(y).ticks(null, "s"))
+        .append("text")
+          .attr("x", 2)
+          .attr("y", y(y.ticks().pop()) + 0.5)
+          .attr("dy", "0.32em")
+          .attr("fill", "#000")
+          .attr("font-weight", "bold")
+          .attr("text-anchor", "start")
+          .text("Count");
+
+      var legend1 = g1.append("g")
+          .attr("font-family", "Ariel")
+          .attr("font-size", 10)
+          .attr("text-anchor", "end")
+        .selectAll("g")
+        .data(keys.slice())
+        .enter().append("g")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      legend1.append("rect")
+          .attr("x", width - 19)
+          .attr("width", 19)
+          .attr("height", 19)
+          .attr("fill", z);
+
+      legend1.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9.5)
+          .attr("dy", "0.32em")
+          .text(function(d) { return d; });
+    });
+
+
+    d3.csv("salahbycompetition.csv", function(d, i, columns) {
+      for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
       return d;
     }, function(error, data) {
       if (error) throw error;
-      
-        console.log(data);
-    //setting axis domains based on data
-    x1.domain(data.map(function(d) { return d.mfr; }));
-    y1.domain([0, d3.max(data, function(d) { return d.rating; })]);
-	    
-    //setting axis domains based on data
-    x2.domain(data.map(function(d) { return d.mfr; }));
-    y2.domain([0, 180]);    
-	    
-	//appending the x axis
-        g1.append("g")
-         .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(x))
-	 .append("text")
-	    .attr("x", width - 200)
-	    .attr("y", 30)
-	    .attr("text-anchor", "end")
-	    .attr("stroke", "black")
-	    .text("Manufacturer");
-		
-	//appending the y axis
-        g1.append("g")
-         .call(d3.axisLeft(y).tickFormat(function(d){
-             return d;
-         }).ticks(10))
-	 .append("text")
-	    .attr("transform", "rotate(-90)")
-	    .attr("y", 5)
-	    .attr("dy", "-5.1em")
-		  .attr("text-anchor","end")
-	    .attr("stroke", "black")
-	    .text("Rating");
-	  
-	//adding the bars
-	g1.selectAll(".bar")
-	    .data(data)
-	    .enter()
-	    .append("rect")
-	    .attr("class", "bar")
-	    .attr("x", function(d) { return x(d.mfr); })
-	    .attr("y", function(d) { return y(d.rating); })
-	    .attr("width", x.bandwidth())
-	    .attr("height", function(d) { return height - y(d.rating); });
-	    
-	//adding text element
-	 svg1.append("text")
-	    .attr("transform", "translate(100,0)")
-	    .attr("x",50)
-	    .attr("y",50)
-	    .attr("font-size", "20px")
-	    .text("Manufacturer vs Avg Rating")	  
-	    
 
- 
-        
-	//appending the x axis
-        g2.append("g")
-         .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(x2))
-	 .append("text")
-	    .attr("x", width - 200)
-	    .attr("y", 30)
-	    .attr("text-anchor", "end")
-	    .attr("stroke", "black")
-	    .text("Manufacturer");
-		
-	//appending the y axis
-        g2.append("g")
-         .call(d3.axisLeft(y2).tickFormat(function(d){
-             return d;
-         }).ticks(10)) 
-	 .append("text")
-	    .attr("transform", "rotate(-90)")
-	    .attr("y", 5)
-	    .attr("dy", "-5.1em")
-		  .attr("text-anchor","end")
-	    .attr("stroke", "black")
-	    .text("Rating");
-	  
-	//adding the bars
-	g2.selectAll(".bar")
-	    .data(data)
-	    .enter()
-	    .append("rect")
-	    .attr("class", "bar")
-	    .attr("x", function(d) { return x(d.mfr); })
-	    .attr("y", function(d) { return y(d.calories); })
-	    .attr("width", x.bandwidth())
-	    .attr("height", function(d) { return height - y2(d.calories); });
-	    
-	//adding text element
-	 svg2.append("text")
-	    .attr("transform", "translate(100,0)")
-	    .attr("x",50)
-	    .attr("y",50)
-	    .attr("font-size", "20px")
-	    .text("Manufacturer vs Avg Calories")	    
-	    
+      var keys = data.columns.slice(1); // takes columns from the 1st one
+      console.log(keys)
+
+      x0.domain(data.map(function(d) { return d.Tournament; }));
+      x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+      y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+      g2.append("g")
+        .selectAll("g")
+        .data(data)
+        .enter().append("g")
+          .attr("transform", function(d) { return "translate(" + x0(d.Tournament) + ",0)"; })
+        .selectAll("rect")
+        .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+        .enter().append("rect")
+          .attr("x", function(d) { return x1(d.key); })
+          .attr("y", function(d) { return y(d.value); })
+          .attr("width", x1.bandwidth())
+          .attr("height", function(d) { return height - y(d.value); })
+          .attr("fill", function(d) { return z(d.key); });
+
+      g2.append("g")
+          .attr("class", "axis")
+          .call(d3.axisBottom(x0))
+          .attr("transform", "translate(0," + height + ")")
+          .append("text")
+          .attr("x",2)
+          .attr("y",0)
+          .attr("fill","#000")
+          .attr("font-weight","bold")
+          .attr("text-anchor","start")
+          .text(function(d) {return d;});
+
+      g2.append("g")
+          .attr("class", "axis")
+          .call(d3.axisLeft(y).ticks(null, "s"))
+        .append("text")
+          .attr("x", 2)
+          .attr("y", y(y.ticks().pop()) + 0.5)
+          .attr("dy", "0.32em")
+          .attr("fill", "#000")
+          .attr("font-weight", "bold")
+          .attr("text-anchor", "start")
+          .text("Count");
+
+      var legend2 = g2.append("g")
+          .attr("font-family", "Ariel")
+          .attr("font-size", 10)
+          .attr("text-anchor", "end")
+        .selectAll("g")
+        .data(keys.slice())
+        .enter().append("g")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      legend2.append("rect")
+          .attr("x", width - 19)
+          .attr("width", 19)
+          .attr("height", 19)
+          .attr("fill", z);
+
+      legend2.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9.5)
+          .attr("dy", "0.32em")
+          .text(function(d) { return d; });
     });
-	
-	    	  
-  </script>
+    d3.csv("salahbyposition1.csv", function(d, i, columns) {
+      for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+
+      var keys = data.columns.slice(1); // takes columns from the 1st one
+      console.log(keys)
+
+      x0.domain(data.map(function(d) { return d.Position; }));
+      x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+      y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+      g3.append("g")
+        .selectAll("g")
+        .data(data)
+        .enter().append("g")
+          .attr("transform", function(d) { return "translate(" + x0(d.Position) + ",0)"; })
+        .selectAll("rect")
+        .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+        .enter().append("rect")
+          .attr("x", function(d) { return x1(d.key); })
+          .attr("y", function(d) { return y(d.value); })
+          .attr("width", x1.bandwidth())
+          .attr("height", function(d) { return height - y(d.value); })
+          .attr("fill", function(d) { return z(d.key); });
+
+      g3.append("g")
+          .attr("class", "axis")
+          .call(d3.axisBottom(x0))
+          .attr("transform", "translate(0," + height + ")");
+
+      g3.append("g")
+          .attr("class", "axis")
+          .call(d3.axisLeft(y).ticks(null, "s"))
+        .append("text")
+          .attr("x", 2)
+          .attr("y", y(y.ticks().pop()) + 0.5)
+          .attr("dy", "0.32em")
+          .attr("fill", "#000")
+          .attr("font-weight", "bold")
+          .attr("text-anchor", "start")
+          .text("Count");
+
+      var legend3 = g3.append("g")
+          .attr("font-family", "Ariel")
+          .attr("font-size", 10)
+          .attr("text-anchor", "end")
+        .selectAll("g")
+        .data(keys.slice())
+        .enter().append("g")
+          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      legend3.append("rect")
+          .attr("x", width - 19)
+          .attr("width", 19)
+          .attr("height", 19)
+          .attr("fill", z);
+
+      legend3.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9.5)
+          .attr("dy", "0.32em")
+          .text(function(d) { return d; });
+    });
+
+
+    d3.csv("salahmarket.csv", function(d) {
+      d.Date = parseTime(d.Date);
+      d.Value = +d.Value;
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+
+      x.domain(d3.extent(data, function(d) { return d.Date; }));
+      y1.domain(d3.extent(data, function(d) { return d.Value; }));
+      console.log(y1)
+
+      g4.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x))
+        .select(".domain")
+          .remove();
+
+      g4.append("g")
+          .call(d3.axisLeft(y1))
+        .append("text")
+          .attr("fill", "#000")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", "0.71em")
+          .attr("text-anchor", "end")
+          .text("Price (in pounds)");
+
+      g4.append("path")
+          .datum(data.filter(function(d){
+            return d.Value>=10000000
+          }))
+          .attr("fill", "none")
+          .attr("stroke", "steelblue")
+          .attr("stroke-width", 4)
+          .attr("d", line)
+      g4.append("path")
+              .datum(data.filter(function(d){
+                return d.Value<=10000000
+              }))
+              .attr("fill", "none")
+              .attr("stroke", "blue")
+              .attr("stroke-width", 1.5)
+              .attr("d", line)
+
+
+    });
+
+    </script>
+
   </body>
+
 </html>
