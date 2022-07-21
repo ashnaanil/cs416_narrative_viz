@@ -10,8 +10,7 @@
 </head>
 
 	
-<body id="Top">
-	
+<body id="Top">	
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" color="#bd5d38">
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="cereal-ranked.jpg" width = "250" height = "200" alt="">
@@ -35,12 +34,10 @@
   </nav>
 	
 	
-<div class="container-fluid p-0">	
-	
-<div class="my-auto">
-      <section class=" p-3 p-lg-5 d-flex d-column" id="Overview">
-      	<h1 class="mb-0"> Overview </h1>
-          <div class="info mb-5">
+<div>
+      <section id="Overview">
+      	<h1> Overview </h1>
+          <div>
 		  Vizualiation about factors such as average rating, calories, sugars etc... of cereals by cereal manufacturers.
           </div>
       <article>
@@ -67,25 +64,21 @@
 </div>
 	      
 
-<div class="my-auto">		
+<div>		
 	<section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
-	  <h2 class="mb-0">Cereal Manufacturer Statistics</h2>
-            <svg id='svg-2' width='1000' height="400"float="left" ></svg>
-            <svg id='svg-3' width='1000' height="400"float="left" display='none'></svg>
+	  <h2>Cereal Manufacturer Statistics</h2>
+            <svg id='svg-2' width='1000' height="600"float="left" ></svg>
+            <svg id='svg-3' width='1000' height="600"float="left" display='none'></svg>
             <button class='button' onclick="showcalories();" > Manufacturer By Calories </button>
             <button class='button' onclick="showratings();">Manufacturer By Ratings </button>
-            <h4> KEY TAKEAWAYS </h4>
-            <ul>
-              <li> Plays at his best on forward right  </li>
-            <ul>
 	    <a class="button" href="#marketvalue" font-size='40px'> Next </a>
         </section>
 </div>
 
-<div class="my-auto">
+<div>
    <section class=" p-3 p-lg-5 d-flex d-column" id="marketvalue">
-          <h2 class="mb-0">Market Value</h2>
-            <svg id='svg-4' width='900' height="400"float="left"></svg>
+          <h2>Market Value</h2>
+            <svg id='svg-4' width='1000' height="600"float="left"></svg>
             <h4> KEY TAKEAWAYS </h4>
             <ul>
               <li> The HIGHLIGHTED PART indicates how fast value can rise in football. </li>
@@ -95,9 +88,6 @@
           <a class="button" href="#Top" font-size='40px'> Return </a>
 	</section>
 </div>
-
-</div>
-
 		
 <script src="https://d3js.org/d3.v4.min.js"></script>	      
 <script>
@@ -237,7 +227,7 @@
 	    .enter()
 	    .append("circle")
 	    .attr("cx", function(d) {return x(d.rating); })
-	    .attr("cy", function(d) {return x(d.calories); })
+	    .attr("cy", function(d) {return y(d.calories); })
 	    .attr("r", 1.5)
 	    .style("fil", "#69b3a2")
       g4.append("g")
@@ -265,7 +255,7 @@ d3.csv("cereal.csv", function(d) {
 },  function(error, data) {
         if (error) throw error;
       var topData = data.sort(function(a) {
-          return d3.descending(+a.rating);
+          return d3.ascending(+a.rating);
        }).slice(0, 10);//top 10 here
      var p = d3.select("body")
       .selectAll("p")
@@ -273,7 +263,7 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return d.name+d.rating;
+        return d.name + " has a rating of" + d.rating;
       });
  });
 	
