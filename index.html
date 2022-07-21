@@ -126,9 +126,10 @@
     
     
     //loading data and appending axis
-    async function init() {
-      const data = await d3.csv('cereal.csv');
-      console.log(data)
+    d3.csv("cereal.csv", function(d) {
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
       
         
     //setting axis domains based on data
