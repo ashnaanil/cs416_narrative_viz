@@ -151,12 +151,13 @@
           .attr("class", "axis")
           .call(d3.axisBottom(x))
           .attr("transform", "translate(0," + height + ")")
-	    .append("text")
-	    .attr("x", width - 200)
-	    .attr("y", 30)
-	    .attr("text-anchor", "end")
-	    .attr("stroke", "black")
-	    .text("Manufacturer");
+        .append("text")
+          .attr("x", 2)
+          .attr("y", y(y.ticks().pop()) + 0.5)
+          .attr("dy", "0.32em")
+          .attr("fill", "#000")
+          .attr("text-anchor", "start")
+          .text("Ratings");   
       g2.append("g")
           .attr("class", "axis")
           .call(d3.axisLeft(y).ticks(null, "s"))
@@ -207,7 +208,6 @@
           .attr("y", y(y.ticks().pop()) + 0.5)
           .attr("dy", "0.32em")
           .attr("fill", "#000")
-          .attr("font-weight", "bold")
           .attr("text-anchor", "start")
           .text("Ratings");   
 	   
