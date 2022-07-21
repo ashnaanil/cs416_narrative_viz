@@ -234,7 +234,10 @@
           .call(d3.axisLeft(y1))
           .append("text")
           .attr("fill", "#000")
-	  .attr("transform", "translate(-30, " + (height+margin)/2 + ") rotate(-90)")
+          .attr("transform", "rotate(-90)")
+          .attr("y", -10)
+          .attr("dy", "1em")
+          .attr("text-anchor", "end")
           .text("Calories");
      g4.append("g")
           .call(d3.axisBottom(x1))
