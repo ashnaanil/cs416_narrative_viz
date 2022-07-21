@@ -222,26 +222,6 @@
           .text("Ratings");
     });
 	
-
-	
-//selecting top10	
-d3.csv("cereal.csv", function(d) {
-    return d;
-},  function(error, data) {
-        if (error) throw error;
-      var topData = data.sort(function(a, b) {
-          return d3.descending(+a.rating, +b.calories);
-       }).slice(0, 10);//top 10 here
-     var p = d3.select("body")
-      .selectAll("p")
-      .data(topData)
-      .enter()
-      .append("p")
-      .text(function(d){
-        return d.name;
-      });
- });
-	
     //ratings vs calories
     d3.csv("cereal.csv", function(d) {
       return d;
@@ -271,9 +251,30 @@ d3.csv("cereal.csv", function(d) {
           .call(d3.axisBottom(x1))
           .attr("transform", "translate(0," + height + ")")
           .append("text")
+	   .attr("transform", "translate(" + (width/2) + "," + (height + margin.bottom - 2) + ")")
           .text("Ratings");
      
     });
+	
+	
+//selecting top10	
+d3.csv("cereal.csv", function(d) {
+    return d;
+},  function(error, data) {
+        if (error) throw error;
+      var topData = data.sort(function(a) {
+          return d3.descending(+a.rating);
+       }).slice(0, 10);//top 10 here
+     var p = d3.select("body")
+      .selectAll("p")
+      .data(topData)
+      .enter()
+      .append("p")
+      .text(function(d){
+        return d.name, d.rating;
+      });
+ });
+	
 
     </script>
 
