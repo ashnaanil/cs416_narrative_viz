@@ -279,7 +279,7 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
       if (error) throw error;
 
 
-      x0.domain(data.map(function(d) { return d.name; }));
+      x0.domain(data.map(function(d) { return d.mfr; }));
       y.domain([0, d3.max(data, function(d) { return d.calories; })]);
 
       g2.append("g")
@@ -288,7 +288,7 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
 	    .enter()
 	    .append("rect")
 	    .attr("class", "bar")
-	    .attr("x", function(d) { return x0(d.name); })
+	    .attr("x", function(d) { return x0(d.mfr); })
 	    .attr("y", function(d) { return y(d.calories); })
 	    .attr("width", x0.bandwidth())
 	    .attr("height", function(d) { return height - y(d.calories); });   
@@ -304,7 +304,7 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
           .attr("fill","#000")
           .attr("font-weight","bold")
           .attr("text-anchor","start")
-          .text("Cereal Name");
+          .text("Mfr Name");
 
       g2.append("g")
           .attr("class", "axis")
