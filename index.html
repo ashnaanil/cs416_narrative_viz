@@ -27,7 +27,7 @@
  <a class="nav-link " href="#Overview" color="#6c757d" >Career Overview</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#17-18">Liverpool 17-18</a>
+            <a class="nav-link " href="#Stats">Cereal Manufacturer Stats</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#marketvalue">Market Value</a>
@@ -70,18 +70,18 @@
            </article>
         </div>
       </section>
-         <a class="button" href="#17-18" font-size='40px'> Next </a>
+         <a class="button" href="#Stats" font-size='40px'> Next </a>
          <br/>
          <br/>
 
 		
-      <section class = "p-3 p-lg-5 d-flex d-column" id = "17-18">
+      <section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
         <div class="my-auto">
-          <h2 class="mb-0">Liverpool 17-18 Season </h2>
+          <h2 class="mb-0">Cereal Manufacturer Statistics</h2>
           <svg id='svg-2' width='1000' height="400"float="left" ></svg>
           <svg id='svg-3' width='1000' height="400"float="left" display='none'></svg>
-         <button class='button' onclick="showcalories();" > Goals By Calories </button>
-         <button class='button' onclick="showratings();">Goals By Ratings </button>
+         <button class='button' onclick="showcalories();" > Manufacturer By Calories </button>
+         <button class='button' onclick="showratings();">Manufacturer By Ratings </button>
          <h4> KEY TAKEAWAYS </h4>
          <ul>
            <li> Plays at his best on forward right  </li>
@@ -336,9 +336,9 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
 	    .append("rect")
 	    .attr("class", "bar")
 	    .attr("x", function(d) { return x0(d.mfr); })
-	    .attr("y", function(d) { return y(d.ratings); })
+	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x0.bandwidth())
-	    .attr("height", function(d) { return height - y(d.calories); });   
+	    .attr("height", function(d) { return height - y(d.rating); });   
 	    
 	    
       g3.append("g")
