@@ -115,81 +115,48 @@
     }
 
 
-// declare the svgs
-var svg1 = d3.select("#svg-2") 
+  // declaring svgs
   var svg2 = d3.select("#svg-2") 
   var svg3 = d3.select('#svg-3') 
-  var svg4 = d3.select('#svg-3') 
+  var svg4 = d3.select('#svg-4') 
+  
+  // setting parameters
   var margin = {top: 10, right: 30, bottom: 40, left: 70}
-  var width = +svg1.attr("width") - margin.left - margin.right
-  var height = +svg1.attr("height") - margin.top - margin.bottom
-  var g1 = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var width = +svg2.attr("width") - margin.left - margin.right
+  var height = +svg2.attr("height") - margin.top - margin.bottom
+  
+  // declaring group objects
   var g2 = svg2.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g3 = svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g4 = svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-
-
-  var parseTime = d3.timeParse("%d-%b-%y");
-  var x = d3.scaleTime()
-      .rangeRound([0, width]);
-
-  var y1 = d3.scaleLinear()
-      .rangeRound([height, 0]);
-  var line = d3.line().x(function(d) { return x(d.Date); }).y(function(d) { return y1(d.Value); });
-var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
-var x1 = d3.scaleLinear().rangeRound([height, 0]);
-var y = d3.scaleLinear().rangeRound([height, 0]);
-var z = d3.scaleOrdinal().range(["#FF0000","#FFA500", "#8a89a6","#0000FF","#4CBB17"]);
-
+  // declaring scales
+  var x = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
+  var y = d3.scaleLinear().rangeRound([height, 0]);
+  var x1 = d3.scaleLinear().range(-0, width]);
+  var y1 = d3.scaleLinear().range([height, 0]);
 
 	
-	
-d3.csv("cereal.csv", function(d) {
-    return d;
-},
-    function(error, data) {
-        if (error) throw error;
-	
-      var topData = data.sort(function(a, b) {
-          return d3.descending(+a.name, +b.name);
-       }).slice(0, 10);//top 10 here
-	
-     var p = d3.select("body")
-      .selectAll("p")
-      .data(topData)
-      .enter()
-      .append("p")
-      .text(function(d){
-        return d.name;
-      });
-	
-    });
-
-
+   //mfr vs calories chart
     d3.csv("cereal.csv", function(d) {
       return d;
     }, function(error, data) {
       if (error) throw error;
-
-      x0.domain(data.map(function(d) { return d.mfr; }));
+      x.domain(data.map(function(d) { return d.mfr; }));
       y.domain([0, 200]);
-
       g2.append("g")
 	 .selectAll(".bar")
 	    .data(data)
 	    .enter()
 	    .append("rect")
 	    .attr("class", "bar")
-	    .attr("x", function(d) { return x0(d.mfr); })
+	    .attr("x", function(d) { return x(d.mfr); })
 	    .attr("y", function(d) { return y(d.calories); })
-	    .attr("width", x0.bandwidth())
-	    .attr("height", function(d) { return height - y(d.calories); });  	  
-	    
+	    .attr("width", x.bandwidth())
+	    .attr("height", function(d) { return height - y(d.calories); });  	      
       g2.append("g")
           .attr("class", "axis")
-          .call(d3.axisBottom(x0))
+          .call(d3.axisBottom(x))
           .attr("transform", "translate(0," + height + ")")
           .append("text")
           .attr("x",2)
@@ -198,7 +165,6 @@ d3.csv("cereal.csv", function(d) {
           .attr("font-weight","bold")
           .attr("text-anchor","start")
           .text("Mfr Name");
-
       g2.append("g")
           .attr("class", "axis")
           .call(d3.axisLeft(y).ticks(null, "s"))
@@ -212,29 +178,27 @@ d3.csv("cereal.csv", function(d) {
           .text("Calories");
     });
 	
-	
+      
+    //mfr vs ratings chart
     d3.csv("cereal.csv", function(d) {
       return d;
     }, function(error, data) {
       if (error) throw error;
-
-      x0.domain(data.map(function(d) { return d.mfr; }));
+      x.domain(data.map(function(d) { return d.mfr; }));
       y.domain([0, 100]);
-
       g3.append("g")
 	 .selectAll(".bar")
 	    .data(data)
 	    .enter()
 	    .append("rect")
 	    .attr("class", "bar")
-	    .attr("x", function(d) { return x0(d.mfr); })
+	    .attr("x", function(d) { return x(d.mfr); })
 	    .attr("y", function(d) { return y(d.rating); })
-	    .attr("width", x0.bandwidth())
+	    .attr("width", x.bandwidth())
 	    .attr("height", function(d) { return height - y(d.rating); });   	    
-	 
       g3.append("g")
           .attr("class", "axis")
-          .call(d3.axisBottom(x0))
+          .call(d3.axisBottom(x))
           .attr("transform", "translate(0," + height + ")")
           .append("text")
           .attr("x",2)
@@ -243,7 +207,6 @@ d3.csv("cereal.csv", function(d) {
           .attr("font-weight","bold")
           .attr("text-anchor","start")
           .text("Mfr Name");
-
       g3.append("g")
           .attr("class", "axis")
           .call(d3.axisLeft(y).ticks(null, "s"))
@@ -258,21 +221,41 @@ d3.csv("cereal.csv", function(d) {
     });
 	
 
+	
+//selecting top10	
+d3.csv("cereal.csv", function(d) {
+    return d;
+},  function(error, data) {
+        if (error) throw error;
+      var topData = data.sort(function(a, b) {
+          return d3.descending(+a.name, +b.name);
+       }).slice(0, 10);//top 10 here
+     var p = d3.select("body")
+      .selectAll("p")
+      .data(topData)
+      .enter()
+      .append("p")
+      .text(function(d){
+        return d.name;
+      });
 
+	
+    //ratings vs calories
     d3.csv("cereal.csv", function(d) {
       return d;
     }, function(error, data) {
       if (error) throw error;
-
-      x1.domain(d3.extent(data, function(d) { return d.rating; }));
-      y1.domain(d3.extent(data, function(d) { return d.calories; }));
-
+      x1.domain([0,100]);
+      y1.domain([0,200]);
       g4.append("g")
-          .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x1))
-        .select(".domain")
-          .remove();
-
+	    .selectAll("dot")
+	    .data(data)
+	    .enter()
+	    .append("circle")
+	    .attr("cx", function(d) {return x(d.rating); })
+	    .attr("cy", function(d) {return x(d.calories); })
+	    .attr("r", 1.5)
+	    .style("fil", "#69b3a2
       g4.append("g")
           .call(d3.axisLeft(y1))
         .append("text")
@@ -282,18 +265,14 @@ d3.csv("cereal.csv", function(d) {
           .attr("dy", "0.71em")
           .attr("text-anchor", "end")
           .text("Calories");
-
-      g4.append("path")
-              .datum(data.filter(function(d){
-                return d.calories
-              }))
-              .attr("fill", "none")
-              .attr("stroke", "blue")
-              .attr("stroke-width", 1.5)
-              .attr("d", line)
-
-
+     g4.append("g")
+          .call(d3.axisBottom(x1))
+        .append("text")
+          .text("Ratings");
+     
     });
+
+});
 
     </script>
 
