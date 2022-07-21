@@ -1,6 +1,6 @@
-@media (min-width:992px){
+@media (min-width:900px){
   body{
-    padding-top:0;padding-left:17rem
+    padding-top:0;padding-left:20rem
   }
 }
 
@@ -8,22 +8,23 @@
   font-weight:600;
   text-transform:uppercase}
 
-@media (min-width:992px){
+@media (min-width:900px){
   #sideNav{
     text-align:center;
     position:fixed;
-    top:0;
+    top:50;
     left:0;
     display:flex;
     flex-direction:column;
-    width:17rem;
+    width:20rem;
     height:100vh
   }
 }}
 
 a{
-  color:#bd5d38
+  color:#345ba3
 }
 a:active,a:focus,a:hover{
-  color:#824027
+  color:#b3702d
+
 }
