@@ -1,136 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Mohamed salah player analysis">
-<meta name="author" content="ashnaanil">
-<title> CS 498 Final Project. Aanil2</title>
-	    <link href="salah.min.css" rel="stylesheet">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="description" content="Cereal Manufacturer analysis">
+ <meta name="author" content="ashnaanil">
+ <title> CS 416 Final Project (aanil2) </title>
+ <link href="cereal.css" rel="stylesheet">
 </head>
 
+	
 <body id="Top">
+	
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="cereal-ranked.jpg" width = "150" height = "100" alt="">
-        </span>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav" style="list-style: none;">
-          <li class="nav-item">
-          <a class="nav-link " href="#Aboutviz">About the Visualization</a>
-          </li>
-        <li class="nav-item">
- <a class="nav-link " href="#Overview" color="#6c757d" >Career Overview</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#Stats">Cereal Manufacturer Stats</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#marketvalue">Market Value</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Sources">Sources</a>
-          </li>
-        </li>
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="cereal-ranked.jpg" width = "250" height = "200" alt="">
+       </span>
+  </a> 
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+ <span class="navbar-toggler-icon"></span>
+</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<ul class="navbar-nav" style="list-style: none;">
+  		<li class="nav-item">
+   			<a class="nav-link " href="#Aboutviz">About the Visualization</a>
+  		</li>
+  		<li class="nav-item">
+  			<a class="nav-link " href="#Overview">Overview</a>
+  		</li>
+  		<li class="nav-item">
+   			<a class="nav-link " href="#Stats">Cereal Manufacturer Stats</a>
+  		</li>
+  		<li class="nav-item">
+   			<a class="nav-link" href="#marketvalue">Market Value</a>
+  		</li>
         </ul>
-      </div>
-    </nav>
+	</div>
+  </nav>
+	
+	
 <div class="container-fluid p-0">
-
       <section class="p-3 p-lg-5 d-flex d-column" id="Aboutviz">
         <div class="my-auto">
       <article>
-        Hello everyone and welcome to my simple visualization. <br/>I have created a visualization that talks about the rise in prominence of the Egyptian soccer star
-        Mohamed Salah.<br/>
-
-        <h3> MAIN AIM: </h3> <p> To see how good salah's <strong>17-18</strong> season was and visualize his market value to understand how even ONE good season can significantly increase transfer value in football.  </p>
-        <br/>
-      </br>
-
+        Hello everyone and welcome to my simple visualization.
+        <h3> MAIN AIM: </h3> 
+	      <p> To see how good salah's <strong>17-18</strong> season was </p>
+	      </br>
       </article>
-           <a class="button" href="#Overview" font-size='40px'> Next </a>
-        </div>
+      <a class="button" href="#Overview" font-size='40px'> Next </a>
       </section>
-
+</div>
+	
+	
+	
+<div class="my-auto">
       <section class=" p-3 p-lg-5 d-flex d-column" id="Overview">
-        <div class="my-auto">
-          <h1 class="mb-0">Mohamed Salah </h1>
-          <div class="info mb-5">Age: 26, Place of Birth: Nagrig, Egypt, Height: 5gt 9 in, Current Team: Liverppol, Number: 11
+      	<h1 class="mb-0">Mohamed Salah </h1>
+          <div class="info mb-5">
+		  Age: 26, Place of Birth: Nagrig, Egypt, Height: 5gt 9 in, Current Team: Liverppol, Number: 11
           </div>
-            <svg id='svg-1' width="900" height="400" float="left" ></svg>
-          <article>
+      <svg id='svg-1' width="900" height="400" float="left" ></svg>
+      <article>
             <h4> KEY TAKEAWAYS FROM GRAPH </h4>
             <ul>
               <li> Salah is a top goalscorer as he has scored in pretty much all competitions </li>
             <ul>
-           </article>
-        </div>
+      </article>
+      <a class="button" href="#Stats" font-size='40px'> Next </a>
+      <br/>
       </section>
-         <a class="button" href="#Stats" font-size='40px'> Next </a>
-         <br/>
-         <br/>
+</div>
+	      
 
-		
-      <section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
-        <div class="my-auto">
-          <h2 class="mb-0">Cereal Manufacturer Statistics</h2>
-          <svg id='svg-2' width='1000' height="400"float="left" ></svg>
-          <svg id='svg-3' width='1000' height="400"float="left" display='none'></svg>
-         <button class='button' onclick="showcalories();" > Manufacturer By Calories </button>
-         <button class='button' onclick="showratings();">Manufacturer By Ratings </button>
-         <h4> KEY TAKEAWAYS </h4>
-         <ul>
-           <li> Plays at his best on forward right  </li>
-         <ul>
-        </div>
-      </section>	
-         <a class="button" href="#marketvalue" font-size='40px'> Next </a>
-         <br/>
-		
-		
-		
-         <br/>
-      <section class=" p-3 p-lg-5 d-flex d-column" id="marketvalue">
-        <div class="my-auto">
+<div class="my-auto">		
+	<section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
+	  <h2 class="mb-0">Cereal Manufacturer Statistics</h2>
+            <svg id='svg-2' width='1000' height="400"float="left" ></svg>
+            <svg id='svg-3' width='1000' height="400"float="left" display='none'></svg>
+            <button class='button' onclick="showcalories();" > Manufacturer By Calories </button>
+            <button class='button' onclick="showratings();">Manufacturer By Ratings </button>
+            <h4> KEY TAKEAWAYS </h4>
+            <ul>
+              <li> Plays at his best on forward right  </li>
+            <ul>
+	    <a class="button" href="#marketvalue" font-size='40px'> Next </a>
+        </section>
+</div>
+
+<div class="my-auto">
+       <section class=" p-3 p-lg-5 d-flex d-column" id="marketvalue">
           <h2 class="mb-0">Market Value</h2>
             <svg id='svg-4' width='900' height="400"float="left"></svg>
             <h4> KEY TAKEAWAYS </h4>
             <ul>
               <li> The HIGHLIGHTED PART indicates how fast value can rise in football. </li>
 	    <ul>
-        </div>
-      </section>
-      <a class="button" href="#Sources" font-size='40px'> Next </a>
-      <a class="button" href="#Top" font-size='40px'> Return </a>
-      <br/>
-      <br/>
+          <a class="button" href="#Sources" font-size='40px'> Next </a>
+          <br/>
+          <a class="button" href="#Top" font-size='40px'> Return </a>
+	</section>
+</div>
+
 
 		
-      <br/>
-      <br/>
-      <section class=" p-3 p-lg-5 d-flex d-column" id="Sources">
-        <div class="my-auto">
-          <h2 class="mb-0">SOURCES </h2>
-            <ul>
-              <li> https://startbootstrap.com/template-overviews/resume/ </li>
-        </div>
-      </section>
-      <a class="button" href="#Top" font-size='40px'> Return </a>
-      <br/>
-      <br/>
-
-
-</div>
-</div>
- <script src="https://d3js.org/d3.v4.min.js"></script>
-	      
+<script src="https://d3js.org/d3.v4.min.js"></script>	      
 <script>
-
-
+	
 //set up chart
 var bmargin = {top: 20, right: 20, bottom: 95, left: 50};
 var bwidth = 800;
