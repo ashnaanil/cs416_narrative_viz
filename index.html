@@ -269,7 +269,9 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return d.name + " manufactured by " + <font color="#27619c"> d.mfr </font>  +  "has a rating of " + <font color="#26781d> d.rating </font>;
+	      <font color="#27619c"> 
+        return d.name + " manufactured by " +  d.mfr  +  "has a rating of " +  d.rating;
+	      </font>
       });
     });
 	
