@@ -51,10 +51,11 @@
 		    <li> R = Quaker Oats </li>
 		    <li> A = Ralston Purina </li>
             <ul>
-		    <p> Sources </p>
-		    https://d3-graph-gallery.com/graph/scatter_basic.html
-		    </br>
-		    https://www.kaggle.com/datasets/crawford/80-cereals
+	    <p> Sources </p>
+	    https://d3-graph-gallery.com/graph/scatter_basic.html
+	    </br>
+	    https://www.kaggle.com/datasets/crawford/80-cereals
+            <svg id='svg-1' width='600' height="100"float="left"></svg>
       </article>
       <br>
       <a class="button" href="#Stats" font-size='40px'> Next </a>
@@ -112,6 +113,7 @@
     }
 
   // declaring svgs
+  var svg1 = d3.select('#svg-1') 
   var svg2 = d3.select("#svg-2") 
   var svg3 = d3.select('#svg-3') 
   var svg4 = d3.select('#svg-4') 
@@ -267,7 +269,7 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return d.name + " has a rating of " + d.rating;
+        return d.name + "manufactured by " + d.mfr +  "has a rating of " + d.rating;
       });
     });
 	
