@@ -125,17 +125,9 @@
 
 
 </div>
-
-
-
-    </div>
-
-
-
-
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-
-
+</div>
+ <script src="https://d3js.org/d3.v4.min.js"></script>
+	      
 <script>
 
 
@@ -143,27 +135,17 @@
 var bmargin = {top: 20, right: 20, bottom: 95, left: 50};
 var bwidth = 800;
 var bheight = 500;
-
 var comp = d3.select(".comp")
 				.attr("width", bwidth + bmargin.left + bmargin.right)
 				.attr("height", bheight + bmargin.top + bmargin.bottom)
 				.append("g")
 				.attr("transform", "translate(" + bmargin.left + "," + bmargin.top + ")");
-
 var bx = d3.scaleBand().rangeRound([0, bwidth]).paddingInner(0.1);
 var by = d3.scaleLinear().rangeRound([bheight, 0]);
-
 var xAxis = d3.axisBottom(bx);
 var yAxis = d3.axisLeft(by);
 	comp.append("g").attr("class", "y axis").call(yAxis)
-
-
-
-
 comp.append("text").attr("transform", "translate(" + (bwidth/2) + "," + (bheight + bmargin.bottom - 5) + ")").text("player-names");
-
-
-
 comp.append("text").attr("transform", "translate(-35," +  (bheight+bmargin.bottom)/2 + ") rotate(-90)").text("goals");
 comp.append("g").attr("class", "xAxis").attr("transform", "translate(0," + bheight + ")").call(xAxis).selectAll("text").style("text-anchor", "end").attr("transform", function(d){
 				return "rotate(-70)";
@@ -180,9 +162,6 @@ comp.append("g").attr("class", "xAxis").attr("transform", "translate(0," + bheig
      }
 
 // show the competition graph
-
-
-
      function showcompetition(){
        var y = document.getElementById("svg-2")
        y.style.display="block"
@@ -193,16 +172,16 @@ comp.append("g").attr("class", "xAxis").attr("transform", "translate(0," + bheig
 
 // declare the svgs
 var svg1 = d3.select("#svg-1")  // salah summary svg
-  var svg2=d3.select("#svg-2")  // salah position svg
-      var svg3=d3.select('#svg-3') // salah competition svg
-  var svg4=d3.select('#svg-4')// salah market value svg
+  var svg2 = d3.select("#svg-2")  // salah position svg
+  var svg3 = d3.select('#svg-3') // salah competition svg
+  var svg4 = d3.select('#svg-4')// salah market value svg
   var margin = {top: 10, right: 30, bottom: 40, left: 70}
-    var width = +svg1.attr("width") - margin.left - margin.right
+  var width = +svg1.attr("width") - margin.left - margin.right
   var height = +svg1.attr("height") - margin.top - margin.bottom
-    var g1 = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  var g2=svg2.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  var g3=svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  var  g4 = svg4.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g1 = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g2 = svg2.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g3 = svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g4 = svg4.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
 
@@ -217,6 +196,8 @@ var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
 var x1 = d3.scaleBand().padding(0.05);
 var y = d3.scaleLinear().rangeRound([height, 0]);
 var z = d3.scaleOrdinal().range(["#FF0000","#FFA500", "#8a89a6","#0000FF","#4CBB17"]);
+
+	
 d3.csv("salahcareer.csv", function(d, i, columns) {
 for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
     return d;},
@@ -292,33 +273,27 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
     });
 
 
-    d3.csv("salahbycompetition.csv", function(d, i, columns) {
-      for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+    d3.csv("cereal.csv", function(d) {
       return d;
     }, function(error, data) {
       if (error) throw error;
 
-      var keys = data.columns.slice(1); // takes columns from the 1st one
-      console.log(keys)
 
-      x0.domain(data.map(function(d) { return d.Tournament; }));
-      x1.domain(keys).rangeRound([0, x0.bandwidth()]);
-      y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+      x0.domain(data.map(function(d) { return d.name; }));
+      y.domain([0, d3.max(data, function(d) { return d.calories; })]);
 
       g2.append("g")
-        .selectAll("g")
-        .data(data)
-        .enter().append("g")
-          .attr("transform", function(d) { return "translate(" + x0(d.Tournament) + ",0)"; })
-        .selectAll("rect")
-        .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
-        .enter().append("rect")
-          .attr("x", function(d) { return x1(d.key); })
-          .attr("y", function(d) { return y(d.value); })
-          .attr("width", x1.bandwidth())
-          .attr("height", function(d) { return height - y(d.value); })
-          .attr("fill", function(d) { return z(d.key); });
-
+	 .selectAll(".bar")
+	    .data(data)
+	    .enter()
+	    .append("rect")
+	    .attr("class", "bar")
+	    .attr("x", function(d) { return x0(d.name); })
+	    .attr("y", function(d) { return y(d.calories); })
+	    .attr("width", x0.bandwidth())
+	    .attr("height", function(d) { return height - y(d.calories); });   
+	    
+	    
       g2.append("g")
           .attr("class", "axis")
           .call(d3.axisBottom(x0))
@@ -329,7 +304,7 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
           .attr("fill","#000")
           .attr("font-weight","bold")
           .attr("text-anchor","start")
-          .text(function(d) {return d;});
+          .text("Cereal Name");
 
       g2.append("g")
           .attr("class", "axis")
@@ -341,29 +316,10 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
           .attr("fill", "#000")
           .attr("font-weight", "bold")
           .attr("text-anchor", "start")
-          .text("Count");
-
-      var legend2 = g2.append("g")
-          .attr("font-family", "Ariel")
-          .attr("font-size", 10)
-          .attr("text-anchor", "end")
-        .selectAll("g")
-        .data(keys.slice())
-        .enter().append("g")
-          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
-      legend2.append("rect")
-          .attr("x", width - 19)
-          .attr("width", 19)
-          .attr("height", 19)
-          .attr("fill", z);
-
-      legend2.append("text")
-          .attr("x", width - 24)
-          .attr("y", 9.5)
-          .attr("dy", "0.32em")
-          .text(function(d) { return d; });
+          .text("Calories");
     });
+	
+	
     d3.csv("salahbyposition1.csv", function(d, i, columns) {
       for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
       return d;
