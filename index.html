@@ -271,7 +271,7 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return d.name, d.rating;
+        return d.name+d.rating;
       });
  });
 	
