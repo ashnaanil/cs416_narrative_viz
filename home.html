@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<style>
+
+.axis .domain {
+  display: none;
+}
+* {box-sizing: border-box}
+
+
+
+/* Make the image to responsive */
+.image {
+  display: inline;
+  height: auto;
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.imagedescription {
+  position: relative;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 20%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.container.image1:hover .imagedescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+</style>
+
+<body>
+  <h1> MOHAMED SALAH CAREER OVERVIEW </h1>
+
+  <div class="row">
+    <div class="column">
+       <img src='img\mohamedsalah.jpg' style="width:10%">
+
+
+         <img src='img\trophy1.png' style="width:5%" >
+
+
+
+
+        <img src='img\trophy2.png' style="width:5%" >
+
+
+
+
+
+       <img src='img\trophy3.png' style="width:5%">
+
+
+
+
+
+      <img src='img\trophy4.png' style="width:5%" >
+
+
+
+
+ </div>
+</div>
+<div>
+  <p>This interactive website follows the drill down model. Choose the filters to see salah's stats on how he performed at a particular club ( three main clubs included: Liverpool, Roma and Chelsea).
+    You can also go ahead and check out his transfer value over the course of his career and the insights drawn on that plus some very interesting comparisons. </p>
+</div>
+<div class="row" >
+  <div class="col-lg-12">
+  <svg width="900" height="400" float="left"></svg>
+  <p float="right" display="inline"> Key Points About salah: </p>
+  <ul>
+    <li> Salah  has scored <strong>121 goals </strong> in 303 appearences as a player </li>
+    <li> He significantly improved his goalscoring from his first season in the premier league ( PLS1) to his second (PLS2) </li>
+    <li>He struggled in his first season at the premier league. However, when he returned for liverpool he broke the record goals for a premier league season with 32 goals </li>
+    <li> He won 5 player of the year awards in 2017-18 </li>
+  </ul>
+  </div>
+
+</div>
+  <form method="get" action="/salahgoals">
+    <button type="submit">Get details</button>
+  </form>
+
+
+</div>
+
+
+</body>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg")
+var margin = {top: 10, right: 30, bottom: 40, left: 40}
+var width = +svg.attr("width") - margin.left - margin.right
+var height = +svg.attr("height") - margin.top - margin.bottom
+var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+var x0 = d3.scaleBand()
+    .rangeRound([0, width])
+    .paddingInner(0.1);
+
+var x1 = d3.scaleBand()
+    .padding(0.05);
+
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+var z = d3.scaleOrdinal()
+    .range(["#FFA500", "#8a89a6", "#FF0000"]);
+
+d3.csv("salahcareer.csv", function(d, i, columns) {
+  for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+  return d;
+}, function(error, data) {
+  if (error) throw error;
+
+  var keys = data.columns.slice(1); // takes columns from the 1st one
+  console.log(keys)
+
+  x0.domain(data.map(function(d) { return d.Competition; }));
+  x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+  y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
+
+  g.append("g")
+    .selectAll("g")
+    .data(data)
+    .enter().append("g")
+      .attr("transform", function(d) { return "translate(" + x0(d.Competition) + ",0)"; })
+    .selectAll("rect")
+    .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
+    .enter().append("rect")
+      .attr("x", function(d) { return x1(d.key); })
+      .attr("y", function(d) { return y(d.value); })
+      .attr("width", x1.bandwidth())
+      .attr("height", function(d) { return height - y(d.value); })
+      .attr("fill", function(d) { return z(d.key); });
+
+  g.append("g")
+      .attr("class", "axis")
+      .call(d3.axisBottom(x0))
+      .attr("transform", "translate(0," + height + ")")
+      .append("text")
+      .attr("x",2)
+      .attr("y",0)
+      .attr("fill","#000")
+      .attr("font-weight","bold")
+      .attr("text-anchor","start")
+      .text(function(d) {return d;});
+
+  g.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(y).ticks(null, "s"))
+    .append("text")
+      .attr("x", 2)
+      .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start")
+      .text("Count");
+
+  var legend = g.append("g")
+      .attr("font-family", "Ariel")
+      .attr("font-size", 10)
+      .attr("text-anchor", "end")
+    .selectAll("g")
+    .data(keys.slice())
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 19)
+      .attr("width", 19)
+      .attr("height", 19)
+      .attr("fill", z);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9.5)
+      .attr("dy", "0.32em")
+      .text(function(d) { return d; });
+});
+
+</script>
+</html>
