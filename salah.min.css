@@ -6,7 +6,8 @@
 
 #sideNav .navbar-nav .nav-item .nav-link{
   font-weight:600;
-  text-transform:uppercase}
+  text-transform:uppercase;
+}
 
 @media (min-width:900px){
   #sideNav{
@@ -22,9 +23,9 @@
 }}
 
 a{
-  color:#345ba3
+  color:#345ba3;
 }
 a:active,a:focus,a:hover{
-  color:#b3702d
+  color:#b3702d;
 
 }
