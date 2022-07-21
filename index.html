@@ -152,7 +152,7 @@ comp.append("g").attr("class", "xAxis").attr("transform", "translate(0," + bheig
 			});
 
 // show the position graph
-    function showcalories(){
+    function showratings(){
      var y = document.getElementById("svg-2")
      y.style.display="none"
      var z=document.getElementById("svg-3")
@@ -162,7 +162,7 @@ comp.append("g").attr("class", "xAxis").attr("transform", "translate(0," + bheig
      }
 
 // show the competition graph
-     function showratings(){
+     function showcalories(){
        var y = document.getElementById("svg-2")
        y.style.display="block"
        var z=document.getElementById("svg-3")
@@ -338,7 +338,7 @@ for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
 	    .attr("x", function(d) { return x0(d.mfr); })
 	    .attr("y", function(d) { return y(d.ratings); })
 	    .attr("width", x0.bandwidth())
-	    .attr("height", function(d) { return height - y(d.ratings); });   
+	    .attr("height", function(d) { return height - y(d.calories); });   
 	    
 	    
       g3.append("g")
