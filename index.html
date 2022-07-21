@@ -216,21 +216,16 @@
           .attr("font-weight", "bold")
           .attr("text-anchor", "start")
           .text("Ratings");
-      var sum = d3.sum(data, function(d) { return d.rating; }); 
-      var average = sum/data.length;
-      var line = d3.svg.line()
-        .x(function(d, i) { return x2(d.mfr) + i; })
-        .y(function(d, i) { return y(average); }); 
-      g3.append("path")
-        .datum(data)
-        .attr("class", "mean")
-        .attr("d", line);
-      g3.append("text")
-        .attr("transform", "translate(" + (width+3) + "," + y(average) + ")")
-        .attr("dy", "1em")
-        .attr("text-anchor", "end")
-        .style("fill", "red")
-        .html("Average = $" + average);    
+      var dataSum = d3.sum(data, function(d) {
+ 	 return d.rating;
+      });
+
+    g3.append("line")
+    .attr("x1", x2(1))
+    .attr("x2", width)
+    .attr("y1", y(dataSum / data.length))
+    .attr("y2", y(dataSum / data.length));
+	    
     });
 	
     //ratings vs calories
