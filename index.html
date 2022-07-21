@@ -97,58 +97,36 @@
 		
 <script src="https://d3js.org/d3.v4.min.js"></script>	      
 <script>
-	
-//set up chart
-var bmargin = {top: 20, right: 20, bottom: 95, left: 50};
-var bwidth = 800;
-var bheight = 500;
-var comp = d3.select(".comp")
-				.attr("width", bwidth + bmargin.left + bmargin.right)
-				.attr("height", bheight + bmargin.top + bmargin.bottom)
-				.append("g")
-				.attr("transform", "translate(" + bmargin.left + "," + bmargin.top + ")");
-var bx = d3.scaleBand().rangeRound([0, bwidth]).paddingInner(0.1);
-var by = d3.scaleLinear().rangeRound([bheight, 0]);
-var xAxis = d3.axisBottom(bx);
-var yAxis = d3.axisLeft(by);
-	comp.append("g").attr("class", "y axis").call(yAxis)
-comp.append("text").attr("transform", "translate(" + (bwidth/2) + "," + (bheight + bmargin.bottom - 5) + ")").text("player-names");
-comp.append("text").attr("transform", "translate(-35," +  (bheight+bmargin.bottom)/2 + ") rotate(-90)").text("goals");
-comp.append("g").attr("class", "xAxis").attr("transform", "translate(0," + bheight + ")").call(xAxis).selectAll("text").style("text-anchor", "end").attr("transform", function(d){
-				return "rotate(-70)";
-			});
 
-// show the position graph
+// show the ratings graph
     function showratings(){
-     var y = document.getElementById("svg-2")
-     y.style.display="none"
-     var z=document.getElementById("svg-3")
-     z.style.display="block"
-
-
+     	var y = document.getElementById("svg-2")
+     	y.style.display="none"
+     	var z=document.getElementById("svg-3")
+     	z.style.display="block"
      }
 
-// show the competition graph
-     function showcalories(){
-       var y = document.getElementById("svg-2")
-       y.style.display="block"
-       var z=document.getElementById("svg-3")
-       z.style.display="none"
-     }
+// show the calories graph
+    function showcalories(){
+       	var y = document.getElementById("svg-2")
+       	y.style.display="block"
+       	var z=document.getElementById("svg-3")
+       	z.style.display="none"
+    }
 
 
 // declare the svgs
-var svg1 = d3.select("#svg-2")  // salah summary svg
-  var svg2 = d3.select("#svg-2")  // salah position svg
-  var svg3 = d3.select('#svg-3') // salah competition svg
-  var svg4 = d3.select('#svg-4')// salah market value svg
+var svg1 = d3.select("#svg-2") 
+  var svg2 = d3.select("#svg-2") 
+  var svg3 = d3.select('#svg-3') 
+  var svg4 = d3.select('#svg-3') 
   var margin = {top: 10, right: 30, bottom: 40, left: 70}
   var width = +svg1.attr("width") - margin.left - margin.right
   var height = +svg1.attr("height") - margin.top - margin.bottom
   var g1 = svg1.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g2 = svg2.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g3 = svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  var g4 = svg4.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g4 = svg3.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
 
@@ -156,11 +134,12 @@ var svg1 = d3.select("#svg-2")  // salah summary svg
   var parseTime = d3.timeParse("%d-%b-%y");
   var x = d3.scaleTime()
       .rangeRound([0, width]);
+
   var y1 = d3.scaleLinear()
       .rangeRound([height, 0]);
   var line = d3.line().x(function(d) { return x(d.Date); }).y(function(d) { return y1(d.Value); });
 var x0 = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
-var x1 = d3.scaleBand().padding(0.05);
+var x1 = d3.scaleLinear().rangeRound([height, 0]);
 var y = d3.scaleLinear().rangeRound([height, 0]);
 var z = d3.scaleOrdinal().range(["#FF0000","#FFA500", "#8a89a6","#0000FF","#4CBB17"]);
 
@@ -177,7 +156,8 @@ d3.csv("cereal.csv", function(d) {
           return d3.descending(+a.name, +b.name);
        }).slice(0, 10);//top 10 here
 	
-     var p = d3.select("body").selectAll("p")
+     var p = d3.select("body")
+      .selectAll("p")
       .data(topData)
       .enter()
       .append("p")
@@ -193,7 +173,6 @@ d3.csv("cereal.csv", function(d) {
     }, function(error, data) {
       if (error) throw error;
 
-
       x0.domain(data.map(function(d) { return d.mfr; }));
       y.domain([0, 200]);
 
@@ -206,8 +185,7 @@ d3.csv("cereal.csv", function(d) {
 	    .attr("x", function(d) { return x0(d.mfr); })
 	    .attr("y", function(d) { return y(d.calories); })
 	    .attr("width", x0.bandwidth())
-	    .attr("height", function(d) { return height - y(d.calories); });   
-	    
+	    .attr("height", function(d) { return height - y(d.calories); });  	  
 	    
       g2.append("g")
           .attr("class", "axis")
@@ -240,7 +218,6 @@ d3.csv("cereal.csv", function(d) {
     }, function(error, data) {
       if (error) throw error;
 
-
       x0.domain(data.map(function(d) { return d.mfr; }));
       y.domain([0, 100]);
 
@@ -253,9 +230,8 @@ d3.csv("cereal.csv", function(d) {
 	    .attr("x", function(d) { return x0(d.mfr); })
 	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x0.bandwidth())
-	    .attr("height", function(d) { return height - y(d.rating); });   
-	    
-	    
+	    .attr("height", function(d) { return height - y(d.rating); });   	    
+	 
       g3.append("g")
           .attr("class", "axis")
           .call(d3.axisBottom(x0))
@@ -283,20 +259,17 @@ d3.csv("cereal.csv", function(d) {
 	
 
 
-    d3.csv("salahmarket.csv", function(d) {
-      d.Date = parseTime(d.Date);
-      d.Value = +d.Value;
+    d3.csv("cereal.csv", function(d) {
       return d;
     }, function(error, data) {
       if (error) throw error;
 
-      x.domain(d3.extent(data, function(d) { return d.Date; }));
-      y1.domain(d3.extent(data, function(d) { return d.Value; }));
-      console.log(y1)
+      x1.domain(d3.extent(data, function(d) { return d.rating; }));
+      y1.domain(d3.extent(data, function(d) { return d.calories; }));
 
       g4.append("g")
           .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x))
+          .call(d3.axisBottom(x1))
         .select(".domain")
           .remove();
 
@@ -308,19 +281,11 @@ d3.csv("cereal.csv", function(d) {
           .attr("y", 6)
           .attr("dy", "0.71em")
           .attr("text-anchor", "end")
-          .text("Price (in pounds)");
+          .text("Calories");
 
       g4.append("path")
-          .datum(data.filter(function(d){
-            return d.Value>=10000000
-          }))
-          .attr("fill", "none")
-          .attr("stroke", "steelblue")
-          .attr("stroke-width", 4)
-          .attr("d", line)
-      g4.append("path")
               .datum(data.filter(function(d){
-                return d.Value<=10000000
+                return d.calories
               }))
               .attr("fill", "none")
               .attr("stroke", "blue")
