@@ -18,11 +18,11 @@
   		<li class="nav-item">
   		<a class="nav-link " href="#Overview">Overview</a>
   		</li>
-  		<li class="nav-item">
-   		<a class="nav-link " href="#Stats">Manufacturer Stats</a>
+		<li class="nav-item">
+   		<a class="nav-link" href="#rating">Rating Stats</a>
   		</li>
   		<li class="nav-item">
-   		<a class="nav-link" href="#rating">Rating Stats</a>
+   		<a class="nav-link " href="#Stats">Manufacturer Stats</a>
   		</li>
         </ul>
 	</div>
@@ -62,21 +62,6 @@
 </div>
 	      
 
-<div>		
-	<section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
-	  <h2>Cereal Manufacturer Statistics</h2>
-            <svg id='svg-2' width='1000' height="600"float="left" ></svg>
-            <svg id='svg-3' width='1000' height="600"float="left" display='none'></svg>
-	    <br>
-            <button class='button' onclick="showcalories();" > Manufacturer By Highest Calories </button>
-            <button class='button' onclick="showratings();">Manufacturer By Highest Ratings </button>
-	    <br>
-	    <a class="button" href="#marketvalue" font-size='40px'> Next </a>
-	    <br>
-            <a class="button" href="#Top" font-size='40px'> Return </a>
-        </section>
-</div>
-
 <div>
    <section class=" p-3 p-lg-5 d-flex d-column" id="rating">
           <h2>Factors that might affect the Ratings</h2>
@@ -104,6 +89,21 @@
 	</section>
 </div>
 
+	
+<div>		
+	<section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
+	  <h2>Cereal Manufacturer Statistics</h2>
+            <svg id='svg-2' width='1000' height="600"float="left" ></svg>
+            <svg id='svg-3' width='1000' height="600"float="left" display='none'></svg>
+	    <br>
+            <button class='button' onclick="showcalories();" > Manufacturer By Highest Calories </button>
+            <button class='button' onclick="showratings();">Manufacturer By Highest Ratings </button>
+	    <br>
+	    <a class="button" href="#marketvalue" font-size='40px'> Next </a>
+	    <br>
+            <a class="button" href="#Top" font-size='40px'> Return </a>
+        </section>
+</div>	
 	
 	
 <h3> Sources </h3>
@@ -388,7 +388,7 @@
 	    .attr("cx", function(d) {return x1(d.rating); })
 	    .attr("cy", function(d) {return y1(d.protein/d.cups); })
 	    .attr("r", 3)
-	    .style("fill", "#b57735")
+	    .style("fill", "#2955c4")
       g7.append("g")
           .call(d3.axisLeft(y1))
           .append("text")
@@ -462,7 +462,7 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return d.name + " manufactured by " +  d.mfr  +  "has a rating of " +  d.rating;
+        return "o " d.name + " manufactured by " +  d.mfr  +  "has a rating of " +  d.rating;
       });
     });
 	
