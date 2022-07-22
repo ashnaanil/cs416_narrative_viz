@@ -92,6 +92,7 @@
 	   <br>
             <button class='button' onclick="showratings_vs_cals();" style="background-color:#a12731;color:white" > Calories </button>
             <button class='button' onclick="showratings_vs_sugars();" style="background-color:#b57735;color:white"> Sugars </button>
+	    <button class='button' onclick="showratings_vs_proteins();" style="background-color:#2955c4;color:white"> Proteins </button>
 	    <button class='button' onclick="showratings_vs_vitamins();" style="background-color:#339149;color:white"> Vitamins </button>
 	    <br>
 	   <h4> This indicates the relationship between Ratings and other factors </h4>
@@ -137,6 +138,8 @@
      	z.style.display="none"
 	var q =document.getElementById("svg-6")
      	q.style.display="none"
+	var w =document.getElementById("svg-7")
+     	q.style.display="none"
      }
 
 // show the ratings vs sugars graph
@@ -146,6 +149,8 @@
        	var z=document.getElementById("svg-5")
        	z.style.display="block"
 	var q =document.getElementById("svg-6")
+     	q.style.display="none"
+	var w =document.getElementById("svg-7")
      	q.style.display="none"
     }
 
@@ -157,7 +162,22 @@
        	z.style.display="none"
 	var q =document.getElementById("svg-6")
      	q.style.display="block"
+	var w =document.getElementById("svg-7")
+     	q.style.display="none"
     }
+	
+// show the ratings vs proteins graph
+    function showratings_vs_vitamins(){
+       	var y = document.getElementById("svg-4")
+       	y.style.display="none"
+       	var z=document.getElementById("svg-5")
+       	z.style.display="none"
+	var q =document.getElementById("svg-6")
+     	q.style.display="none"
+	var w =document.getElementById("svg-7")
+     	q.style.display="block"
+    }
+	
 	
   // declaring svgs
   var svg2 = d3.select("#svg-2") 
@@ -165,6 +185,7 @@
   var svg4 = d3.select('#svg-4') 
   var svg5 = d3.select('#svg-5') 
   var svg6 = d3.select('#svg-6') 
+  var svg7 = d3.select('#svg-7') 
   
   // setting parameters
   var margin = {top: 10, right: 30, bottom: 40, left: 70}
@@ -177,7 +198,8 @@
   var g4 = svg4.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g5 = svg5.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g6 = svg6.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+  var g7 = svg7.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
   // declaring scales
   var x = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
   var y = d3.scaleLinear().rangeRound([height, 0]);
@@ -319,7 +341,7 @@
       return d;
     }, function(error, data) {
       if (error) throw error;
-      y1.domain([0,20]);
+      y1.domain([0,function(d) {return y1(d.sugars/d.cups); }]);
       g5.append("g")
 	    .selectAll("dot")
 	    .data(data)
@@ -351,12 +373,49 @@
      
     });
 	
+    //ratings vs proteins
+    d3.csv("cereal.csv", function(d) {
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+      y1.domain([0,function(d) {return y1(d.protein/d.cups); }]);
+      g6.append("g")
+	    .selectAll("dot")
+	    .data(data)
+	    .enter()
+	    .append("circle")
+	    .attr("cx", function(d) {return x1(d.rating); })
+	    .attr("cy", function(d) {return y1(d.protein/d.cups); })
+	    .attr("r", 3)
+	    .style("fill", "#b57735")
+      g6.append("g")
+          .call(d3.axisLeft(y1))
+          .append("text")
+          .attr("fill", "#000")
+          .attr("transform", "rotate(-90)")
+          .attr("y", -15)
+          .attr("dy", "1em")
+          .attr("text-anchor", "end")
+          .text("Proteins");
+     g6.append("g")
+          .call(d3.axisBottom(x1))
+	  .attr("transform", "translate(-5," + height + ")")
+	  .append("text")
+          .attr("x",width/2)
+          .attr("y",-5)
+          .attr("fill","#000")
+          .attr("font-weight","bold")
+          .attr("text-anchor","start")
+          .text("Ratings");
+     
+    });
+	
     //ratings vs vitamins
     d3.csv("cereal.csv", function(d) {
       return d;
     }, function(error, data) {
       if (error) throw error;
-      y1.domain([0,100]);
+      y1.domain([0,function(d) {return y1(d.vitamins/d.cups); }]);
       g6.append("g")
 	    .selectAll("dot")
 	    .data(data)
