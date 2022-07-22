@@ -84,8 +84,8 @@
 	  <svg id='svg-5' width='1000' height="600"float="left" display='none'></svg>
 	  <svg id='svg-6' width='1000' height="600"float="left" display='none'></svg>
 	   <br>
-            <button class='button' onclick="showratings_vs_sugars();" > Calories </button>
-            <button class='button' onclick="showratings_vs_cals();"> Sugars </button>
+            <button class='button' onclick="showratings_vs_cals();" > Calories </button>
+            <button class='button' onclick="showratings_vs_sugars();"> Sugars </button>
 	    <button class='button' onclick="showratings_vs_vitamins();"> Vitamins </button>
 	    <br>
 	   <h4> This indicates the relationship between Ratings and other factors </h4>
@@ -126,11 +126,11 @@
 // show the ratings vs calories graph
     function showratings_vs_cals(){
      	var y = document.getElementById("svg-4")
-     	y.style.display="none"
+     	y.style.display="block"
      	var z=document.getElementById("svg-5")
-     	z.style.display="block"
+     	z.style.display="none"
 	var q =document.getElementById("svg-6")
-     	q.style.display="block"
+     	q.style.display="none"
      }
 
 // show the ratings vs sugars graph
