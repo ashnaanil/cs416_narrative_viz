@@ -25,7 +25,7 @@
    		<a class="nav-link " href="#Stats">Manufacturer Stats</a>
   		</li>
 	  	<li class="nav-item">
-   		<a class="nav-link " href="#sources">Sources Stats</a>
+   		<a class="nav-link " href="#sources">Sources</a>
   		</li>
         </ul>
 	</div>
@@ -35,9 +35,9 @@
       <section id="Overview">
       	<h1> Overview </h1>
           <div>
-		  This is a Vizualiation about Cereal Manuactures and details such as the top 10 cereals by rating, highest ratings, highest calories, relationship between the ratings and the calories etc..
+		  This is a Vizualiation about Cereal Manuactures and nutrition metrics such as the top 10 cereals by rating, highest ratings, highest calories, relationship between the ratings and the calories etc..
 		  <br>
-		  The main aim of this is to understand the top rated items from the cereal manufacures ans see the relationship between this rating and other factors such as calories, sugars, vitamins etc..
+		  The main aim of this is to understand the top rated items from the cereal manufacures ans see the relationship between this rating and other nutritional metrics such as calories, sugars, vitamins etc..
           </div>
       <article>
             <h4> CEREAL MANUFACTURERS APPENDIX </h4>
@@ -50,13 +50,22 @@
 		    <li> R = Quaker Oats </li>
 		    <li> A = Ralston Purina </li>
             </ul>
+	    <h4> NUTRITIONAL METRICS APPENDIX </h4>
+            <ul>
+		    <li> Rating = rating of the cereal (from consumer reports) </li>
+		    <li> Calories = calories per serving </li>
+		    <li> Sugars = grams of sugar </li>
+		    <li> Proteins = grams of protein </li>
+		    <li> Vitamins = indicating the typical % of FDA recommended </li>
+            </ul>
       </article>
       <br>
 	      <h3> Top 10 Cereals/Mfr's by Ratings! </h3>
 	      <div id = "top10"> </div>
-	      <h4> As we can see here the highest is All-Bran with Extra Fiber by Khas. 
-		      <br> This is seen in the chart in the Cereal Manufacturer Statistics Section as well. </hr>
-	      <br>
+	      <h3> Some key observations based on the data above </h3>
+	      As we can see here the highest is All-Bran with Extra Fiber by Khas
+	     <br> (This is seen in the chart in the Manufacturer Statistics Section as well.)
+	     <br> Nhas manufactures 5/6 Top rated cereals on the list!
       <a class="button" href="#rating" font-size='40px'> Next </a>
 	<br>
        <a class="button" href="#Top" font-size='40px'> Return </a>
@@ -68,7 +77,7 @@
 <div>
    <section class=" p-3 p-lg-5 d-flex d-column" id="rating">
           <h2>Factors that might affect the Ratings</h2>
-	   <p> The graph below shows the relationship between the ratings and key characteristics such as Calories, Sugars, Vitamins etc. 
+	   <p> The graph below shows the relationship between the ratings and key nutritional characteristics such as Calories, Sugars, Proteins Vitamins etc. 
 		<br>
 	       (These values have been normalized to show the amount per cup.)
 		<br>
@@ -84,7 +93,9 @@
 	    <button class='button' onclick="showratings_vs_proteins();" style="background-color:#2955c4;color:white"> Proteins </button>
 	    <button class='button' onclick="showratings_vs_vitamins();" style="background-color:#339149;color:white"> Vitamins </button>
 	    <br>
-	   <h4> This indicates the relationship between Ratings and other factors </h4>
+	    As seen above, you can get an overall sense that Proteins have a slight positive relationship with Ratings while sugars have a slight negative impact.
+	   <br>
+	   Calories and Vitamins don't have too much of an imapct on the Cereal Ratings 
 	  <br>
           <a class="button" href="#Stats" font-size='40px'> Next </a>
           <br>
@@ -96,6 +107,7 @@
 <div>		
 	<section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
 	  <h2>Cereal Manufacturer Statistics</h2>
+	    <p2> This section shows you an overview of the highest nutritiona metrics of manufacturer.
             <svg id='svg-2' width='1000' height="600"float="left" display='none'></svg>
             <svg id='svg-3' width='1000' height="600"float="left"></svg>
 	    <br>
@@ -114,8 +126,9 @@
 	    <br>
 	    These are the sources that I referenced while creating this visualization project:
             <ul>
-		    <li>  https://d3-graph-gallery.com/graph/scatter_basic.html
-		    <li>  https://www.kaggle.com/datasets/crawford/80-cereals
+		    <li>  https://d3-graph-gallery.com/graph/scatter_basic.html </li>
+		    <li>  https://www.kaggle.com/datasets/crawford/80-cereals </li>
+		    <li>    https://d3-annotation.susielu.com/ </li>
             </ul>
 	    <br>
             <a class="button" href="#Top" font-size='40px'> Return </a>
