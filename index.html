@@ -90,7 +90,7 @@
 	  <svg id='svg-5' width='1000' height="600"float="left" display='none'></svg>
 	  <svg id='svg-6' width='1000' height="600"float="left" display='none'></svg>
 	   <br>
-            <button class='button' onclick="showratings_vs_cals();" > Calories </button>
+            <button class='button' onclick="showratings_vs_cals();" color = "#69b3a2" > Calories </button>
             <button class='button' onclick="showratings_vs_sugars();"> Sugars </button>
 	    <button class='button' onclick="showratings_vs_vitamins();"> Vitamins </button>
 	    <br>
@@ -328,7 +328,7 @@
 	    .attr("cx", function(d) {return x1(d.rating); })
 	    .attr("cy", function(d) {return y1(d.sugars/d.cups); })
 	    .attr("r", 3)
-	    .style("fil", "#251761")
+	    .style("fill", "#b57735")
       g5.append("g")
           .call(d3.axisLeft(y1))
           .append("text")
@@ -365,7 +365,7 @@
 	    .attr("cx", function(d) {return x1(d.rating); })
 	    .attr("cy", function(d) {return y1(d.vitamins/d.cups); })
 	    .attr("r", 3)
-	    .style("fil", "#251761")
+	    .style("fill", "#339149")
       g6.append("g")
           .call(d3.axisLeft(y1))
           .append("text")
