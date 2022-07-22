@@ -19,10 +19,10 @@
   		<a class="nav-link " href="#Overview">Overview</a>
   		</li>
   		<li class="nav-item">
-   		<a class="nav-link " href="#Stats">Cereal Manufacturer Stats</a>
+   		<a class="nav-link " href="#Stats">Manufacturer Stats</a>
   		</li>
   		<li class="nav-item">
-   		<a class="nav-link" href="#marketvalue">Market Value</a>
+   		<a class="nav-link" href="#rating">Rating Stats</a>
   		</li>
         </ul>
 	</div>
@@ -78,8 +78,14 @@
 </div>
 
 <div>
-   <section class=" p-3 p-lg-5 d-flex d-column" id="marketvalue">
+   <section class=" p-3 p-lg-5 d-flex d-column" id="rating">
           <h2>Factors that might affect the Ratings</h2>
+	   <p> The graph below shows the relationship between the ratings and key characteristics such as Calories, Sugars, Vitamins etc. 
+		<br>
+	       (These values have been normalized to show the amount per cup.)
+		<br>
+		   You can toggle between the different characteristics by choosing the buttons below the chart and seeing the relationship.
+	   </p>
           <svg id='svg-4' width='1000' height="600"float="left"></svg>
 	  <svg id='svg-5' width='1000' height="600"float="left" display='none'></svg>
 	  <svg id='svg-6' width='1000' height="600"float="left" display='none'></svg>
@@ -275,14 +281,14 @@
       return d;
     }, function(error, data) {
       if (error) throw error;
-      y1.domain([0,200]);
+      y1.domain([0,d3.max(data, function(d) { return d.calories/d.cups;})]);
       g4.append("g")
 	    .selectAll("dot")
 	    .data(data)
 	    .enter()
 	    .append("circle")
 	    .attr("cx", function(d) {return x1(d.rating); })
-	    .attr("cy", function(d) {return y1(d.calories); })
+	    .attr("cy", function(d) {return y1(d.calories/d.cups); })
 	    .attr("r", 3)
 	    .style("fil", "#69b3a2")
       g4.append("g")
@@ -320,7 +326,7 @@
 	    .enter()
 	    .append("circle")
 	    .attr("cx", function(d) {return x1(d.rating); })
-	    .attr("cy", function(d) {return y1(d.sugars); })
+	    .attr("cy", function(d) {return y1(d.sugars/d.cups); })
 	    .attr("r", 3)
 	    .style("fil", "#251761")
       g5.append("g")
@@ -357,7 +363,7 @@
 	    .enter()
 	    .append("circle")
 	    .attr("cx", function(d) {return x1(d.rating); })
-	    .attr("cy", function(d) {return y1(d.vitamins); })
+	    .attr("cy", function(d) {return y1(d.vitamins/d.cups); })
 	    .attr("r", 3)
 	    .style("fil", "#251761")
       g6.append("g")
