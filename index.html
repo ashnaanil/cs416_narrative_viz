@@ -69,6 +69,7 @@
       
 	      <h4> Top 5 Cereals/Mfr's by Ratings! </h4>
 	      <div id = "top10"> </div>
+	      <svg id='svg-8' width='1000' height="600"float="left"></svg>
 	      <h3> Some key observations based on the data above </h3>
 	      As we can see here the highest is All-Bran with Extra Fiber by Khas
 	      (This is seen in the chart in the Manufacturer Statistics Section as well.)
@@ -226,6 +227,7 @@
   var svg5 = d3.select('#svg-5') 
   var svg6 = d3.select('#svg-6') 
   var svg7 = d3.select('#svg-7') 
+  var svg8 = d3.select('#svg-8') 
   
   // setting parameters
   var margin = {top: 10, right: 30, bottom: 40, left: 70}
@@ -239,6 +241,7 @@
   var g5 = svg5.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g6 = svg6.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   var g7 = svg7.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var g8 = svg8.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
   // declaring scales
   var x = d3.scaleBand().rangeRound([0, width]).paddingInner(0.1);
@@ -246,6 +249,51 @@
   var x1 = d3.scaleLinear().range([-0, width]).domain([0, 100]);
   var y1 = d3.scaleLinear().range([height, 0]);
 
+	
+//top5 rated cereal chart
+    d3.csv("cereal.csv", function(d) {
+      return d;
+    }, function(error, data) {
+      if (error) throw error;
+	    var top5 = data.sort(function(a,b) {
+		    return d3.descending(+a.rating, +b.rating);
+	    }).slicee(0,5)
+      x.domain(data.map(function(d) { return top5.name; }));
+      y.domain([0, 100]);
+      g8.append("g")
+	 .selectAll(".bar")
+	    .data(top5)
+	    .enter()
+	    .append("rect")
+	    .attr("class", "bar")
+	    .style("fill", "#a12731")
+	    .attr("x", function(d) { return x(d.name); })
+	    .attr("y", function(d) { return y(d.rating); })
+	    .attr("width", x.bandwidth())
+	    .attr("height", function(d) { return height - y(d.rating); });  	      
+      g8.append("g")
+          .attr("class", "axis")
+          .call(d3.axisBottom(x))
+          .attr("transform", "translate(0," + height + ")")
+	 .append("text")
+	    .attr("x", width - 200)
+	    .attr("y", 30)
+	    .attr("text-anchor", "end")
+	    .attr("stroke", "black")
+	    .text("Cereal");
+      g8.append("g")
+          .attr("class", "axis")
+          .call(d3.axisLeft(y).ticks(null, "s"))
+        .append("text")
+          .attr("x", 2)
+          .attr("y", y(y.ticks().pop()) + 0.5)
+          .attr("dy", "0.32em")
+          .attr("fill", "#000")
+          .attr("font-weight", "bold")
+          .attr("text-anchor", "start")
+          .text("Rating");
+    });
+	
 	
    //mfr vs calories chart
     d3.csv("cereal.csv", function(d) {
@@ -514,11 +562,9 @@ const annotations = [{
 	}, 
 	 x: 390, y: 48, dy: 100, dx: 200
  }].map(function(d) { d.color = "#8a0000"; return d})
- 
  const makeAnn = d3.annotation()
  .type(d3.annotationLabel)
  .annotations(annotations)
-
 d3.select("#svg-3")
 .append("g")
 .attr("class", "annotation-group")
@@ -530,13 +576,11 @@ const annotations2 = [{
 	label: "(Manufactured by Khas as well)",
 	title: "Highest Calorific Cereal"
 	}, 
-	 x: 390, y: 100, dy: 100, dx: -200
- }].map(function(d) { d.color = "##120000"; return d})
- 
+	 x: 390, y: 48, dy: 100, dx: 200
+ }].map(function(d) { d.color = "#120000"; return d})
  const makeAnn2 = d3.annotation()
  .type(d3.annotationLabel)
  .annotations(annotations2)
-
 d3.select("#svg-2")
 .append("g")
 .attr("class", "annotation-group")
