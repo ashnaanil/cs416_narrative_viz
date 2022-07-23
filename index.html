@@ -33,7 +33,9 @@
   		</li>
         </ul>
 	<img src="sugar.png" width = "240" height = "170" alt="">
+		<br>
 	<img src="Cereal-and-milk.jpg" width = "240" height = "180" alt="">
+		<br>
 	<img src="choco.png" width = "240" height = "250" alt="">
 	</div>
   </nav>
@@ -43,7 +45,7 @@
       <section id="Overview">
       	<h1> Overview </h1>
           <div>
-		  This is a Vizualiation about Cereal Manuactures and nutrition metrics such as the top 10 cereals by rating, highest ratings, highest calories, relationship between the ratings and the calories etc..
+		  This is a Visualization about Cereal Manuactures and metrics such as the ratings, calories, proteins etc..
 		  <br>
 		  The main aim of this is to understand the top rated items from the cereal manufacures ans see the relationship between this rating and other nutritional metrics such as calories, sugars, vitamins etc..
           </div>
@@ -87,7 +89,7 @@
 		<br>
 	       (These values have been normalized to show the amount per cup.)
 		<br>
-		   You can toggle between the different characteristics by choosing the buttons below the chart and seeing the relationship.
+		   You can toggle between the different characteristics by choosing the buttons below the chart and seeing the relationships.
 	   </p>
           <svg id='svg-4' width='1000' height="600"float="left"></svg>
 	  <svg id='svg-5' width='1000' height="600"float="left" display='none'></svg>
@@ -108,7 +110,7 @@
 	   <br>
 	   3. Proteins have a slight positive relationship with Ratings.
 	   <br>
-	   4. Vitamins doesnt have too much of an imapct on the Cereal Ratings 
+	   4. Vitamins doesnt have too much of an imapct on the Cereal Ratings.
 	  <br>
           <a class="button" href="#Stats" font-size='40px'> Next </a>
           <br>
@@ -576,7 +578,7 @@ const annotations2 = [{
 	note: {
 	label: "Highest Calorific Cereal (Manufactured by Khas as well)",
 	}, 
-	 x: 390, y: 120, dy: 50, dx: 100
+	 x: 390, y: 120, dy: 5, dx: 100
  }].map(function(d) { d.color = "#120000"; return d})
  const makeAnn2 = d3.annotation()
  .type(d3.annotationLabel)
