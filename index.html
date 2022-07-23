@@ -259,7 +259,10 @@
 		    return d3.descending(+a.rating, +b.rating);
       }).slice(0,5)
       console.log(top5)
-      x.domain(data.map(function(d) { return d.name; }));
+      data = top5
+      x.domain(data.map(function(d) { return data.sort(function(a,b) {
+		    return d3.descending(+a.rating, +b.rating);
+      }).slice(0,5).name; }));
       y.domain([0, 100]);
       g8.append("g")
 	 .selectAll(".bar")
