@@ -63,12 +63,12 @@
 		    <li> Vitamins = indicating the typical % of FDA recommended </li>
             </ul>
       
-	      <h4> Top 10 Cereals/Mfr's by Ratings! </h4>
+	      <h4> Top 5 Cereals/Mfr's by Ratings! </h4>
 	      <div id = "top10"> </div>
 	      <h3> Some key observations based on the data above </h3>
 	      As we can see here the highest is All-Bran with Extra Fiber by Khas
 	      (This is seen in the chart in the Manufacturer Statistics Section as well.)
-	     <br> Nhas manufactures 5/6 Top rated cereals on the list!
+	     <br> Nhas manufactures 4/5 Top rated cereals on the list!
 	     <br>
       <a class="button" href="#rating" font-size='40px'> Next </a>
       </section>
@@ -491,7 +491,7 @@ d3.csv("cereal.csv", function(d) {
         if (error) throw error;
     var topData = data.sort(function(a, b) {
           return d3.descending(+a.rating, +b.rating);
-       }).slice(0, 10);//top 10 here
+       }).slice(0, 5);//top 10 here
     var p = d3.select("#top10")
       .selectAll("p")
       .data(topData)
@@ -501,7 +501,7 @@ d3.csv("cereal.csv", function(d) {
         return "o " + d.name + " by " +  d.mfr  +  "has a rating: " +  d.rating;
       });
     });
-	
+
 
     </script>
 
