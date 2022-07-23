@@ -530,14 +530,14 @@ const annotations2 = [{
 	label: "(Manufactured by Khas as well)",
 	title: "Highest Calorific Cereal"
 	}, 
-	 x: 390, y: 48, dy: 100, dx: 200
- }].map(function(d) { d.color = "#8a0000"; return d})
+	 x: 390, y: 100, dy: 100, dx: -200
+ }].map(function(d) { d.color = "##120000"; return d})
  
  const makeAnn2 = d3.annotation()
  .type(d3.annotationLabel)
  .annotations(annotations2)
 
-d3.select("#svg-4")
+d3.select("#svg-2")
 .append("g")
 .attr("class", "annotation-group")
 .call(makeAnn2)
