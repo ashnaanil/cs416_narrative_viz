@@ -509,11 +509,11 @@ d3.csv("cereal.csv", function(d) {
 
 const annotations = [{
 	note: {
-	label: "This shows that the highest rated cereal belongs to Khas which links back to the first section as well",
+	label: "(Manufactured by Khas as seen in the first section)",
 	title: "Highest Rated Cereal"
 	}, 
-	 x: 50, y: 150, dy: 137, dx: 162
- }].map(function(d) { d.color = "#E8336D"; return d})
+	 x: 350, y: 50, dy: 137, dx: 162
+ }].map(function(d) { d.color = "#a6162b"; return d})
  
  const makeAnn = d3.annotation()
  .type(d3.annotationLabel)
