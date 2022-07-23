@@ -259,7 +259,7 @@
 		    return d3.descending(+a.rating, +b.rating);
       }).slice(0,5)
       console.log(top5.name)
-      x.domain([d3.map(top5.name)]);
+      x.domain(data.map(function(d) { return d.name; }));
       y.domain([0, 100]);
       g8.append("g")
 	 .selectAll(".bar")
@@ -577,7 +577,7 @@ const annotations2 = [{
 	label: "(Manufactured by Khas as well)",
 	title: "Highest Calorific Cereal"
 	}, 
-	 x: 390, y: 48, dy: 100, dx: 200
+	 x: 390, y: 148, dy: 100, dx: 800
  }].map(function(d) { d.color = "#120000"; return d})
  const makeAnn2 = d3.annotation()
  .type(d3.annotationLabel)
