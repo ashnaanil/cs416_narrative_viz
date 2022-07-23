@@ -258,7 +258,7 @@
 	    var top5 = data.sort(function(a,b) {
 		    return d3.descending(+a.rating, +b.rating);
 	    }).slice(0,5)
-      x.domain(data.map(function(d) { return top5.name; }));
+      x.domain(data.map(function(d) { return data.name; }));
       y.domain([0, 100]);
       g8.append("g")
 	 .selectAll(".bar")
