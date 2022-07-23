@@ -258,8 +258,8 @@
       var top5 = data.sort(function(a,b) {
 		    return d3.descending(+a.rating, +b.rating);
       }).slice(0,5)
-      console.log(top5)
-      x.domain([top5.name]);
+      console.log(top5.name)
+      x.domain([d3.map(top5.name)]);
       y.domain([0, 100]);
       g8.append("g")
 	 .selectAll(".bar")
