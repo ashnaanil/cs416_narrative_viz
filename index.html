@@ -257,7 +257,7 @@
       if (error) throw error;
 	    var top5 = data.sort(function(a,b) {
 		    return d3.descending(+a.rating, +b.rating);
-	    }).slicee(0,5)
+	    }).slice(0,5)
       x.domain(data.map(function(d) { return top5.name; }));
       y.domain([0, 100]);
       g8.append("g")
@@ -550,7 +550,7 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return "o " + d.name + " by " +  d.mfr  +  "has a rating: " +  d.rating;
+        return " o " + d.name + " by " +  d.mfr  +  "has a rating: " +  d.rating;
       });
     });
 
@@ -578,6 +578,7 @@ const annotations2 = [{
 	}, 
 	 x: 390, y: 48, dy: 100, dx: 200
  }].map(function(d) { d.color = "#120000"; return d})
+ const makeAnn = d3.annotation()
  const makeAnn2 = d3.annotation()
  .type(d3.annotationLabel)
  .annotations(annotations2)
