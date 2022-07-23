@@ -574,10 +574,9 @@ d3.select("#svg-3")
 	
 const annotations2 = [{
 	note: {
-	label: "(Manufactured by Khas as well)",
-	title: "Highest Calorific Cereal"
+	label: "Highest Calorific Cereal (Manufactured by Khas as well)",
 	}, 
-	 x: 390, y: 148, dy: 100, dx: 200
+	 x: 390, y: 148, dy: 50, dx: 200
  }].map(function(d) { d.color = "#120000"; return d})
  const makeAnn2 = d3.annotation()
  .type(d3.annotationLabel)
