@@ -145,6 +145,7 @@
 		    <li>  https://www.kaggle.com/datasets/crawford/80-cereals </li>
 		    <li>    https://d3-annotation.susielu.com/ </li>
             </ul>
+	    <svg id='svg-8' width='1000' height="200"float="left"></svg>
 	    <br>
             <a class="button" href="#Top" font-size='40px'> Return </a>
       </section>
@@ -506,54 +507,29 @@ d3.csv("cereal.csv", function(d) {
       });
     });
 
-const type = d3.annotationLabel
 
-const annotations = [{
-  note: {
-    label: "Longer text to show text wrapping",
-    bgPadding: 20,
-    title: "Annotations :)"
-  },
-  //can use x, y directly instead of data
-  data: { date: "18-Sep-09", close: 185.02 },
-  className: "show-bg",
-  dy: 137,
-  dx: 162
-}]
+const annotations = [
+{
+note: {
+label: "This shows that the highest rated cereal belongs to Khas which links back to the first section as well"
+title: "Highest Rated Cereal"
+}, 
+ x: 50,
+ y: 150,
+ dy: 137,
+ dx: 162
+ }].map(function(d) { d.color = "#E8336D"; return d})
+ 
+ const makeAnn = d3.annotation()
+ .type(d3.annotationLabel)
+ .annotations(annotations)
+
+d3.select("#svg-8")
+.append("g")
+.attr("class", "annotation-group")
+.call(makeAnn)
 
 
-
-const parseTime = d3.timeParse("%d-%b-%y")
-const timeFormat = d3.timeFormat("%d-%b-%y")
-
-//Skipping setting domains for sake of example
-const xx = d3.scaleTime().range([0, 800])
-const yy = d3.scaleLinear().range([300, 0])
-
-const makeAnnotations = d3.annotation()
-  .editMode(true)
-  //also can set and override in the note.padding property
-  //of the annotation object
-  .notePadding(15)
-  .type(type)
-  //accessors & accessorsInverse not needed
-  //if using x, y in annotations JSON
-  .accessors({
-    x: d => xx(parseTime(d.date)),
-    y: d => yy(d.close)
-  })
-  .accessorsInverse({
-     date: d => timeFormat(xx.invert(d.x)),
-     close: d => yy.invert(d.y)
-  })
-  .annotations(annotations)
-
-d3.select("#svg-3")
-  .append("g")
-  .attr("class", "annotation-group")
-  .call(makeAnnotations)
-	
-	
 	
     </script>
 
