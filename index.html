@@ -50,7 +50,7 @@
           <div>
 		  This is a Visualization about Cereal Manuactures and metrics such as the ratings, calories, proteins etc..
 		  <br>
-		  The <span style="color:red"> main aim <span> of this is to understand the top rated items from the cereal manufacures and see the relationship between this rating and other nutritional metrics such as calories, sugars, vitamins etc..
+		  The <span style="color:red"> main aim </span> of this is to understand the top rated items from the cereal manufacures and see the relationship between this rating and other nutritional metrics such as calories, sugars, vitamins etc..
           </div>
      
             <h4> Cereal Manufacturers Appendix </h4>
@@ -273,8 +273,6 @@
 		    return d3.descending(+a.rating, +b.rating);
       }).slice(0,5)
       console.log(top5.name)
-      x.domain(data.map(function(d) { return d.name; }));
-      y.domain([0, 100]);
       g8.append("g")
 	 .selectAll(".bar")
 	    .data(top5)
@@ -285,7 +283,9 @@
 	    .attr("x", function(d) { return x(d.name); })
 	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x.bandwidth())
-	    .attr("height", function(d) { return height - y(d.rating); });  	      
+	    .attr("height", function(d) { return height - y(d.rating); }); 
+      x.domain(data.map(function(d) { return d.name; }));
+      y.domain([0, 100]);
       g8.append("g")
           .attr("class", "axis")
           .call(d3.axisBottom(x))
