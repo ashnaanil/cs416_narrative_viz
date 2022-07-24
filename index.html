@@ -54,7 +54,7 @@
           </div>
      
             <h4> Cereal Manufacturers Appendix </h4>
-        
+            <ul>
 		    <li> A = American Home Food Products </li>
 		    <li> K = General Mills </li>
 		    <li> N = Kelloggs </li>
@@ -62,7 +62,7 @@
 		    <li> Q = Post </li>
 		    <li> R = Quaker Oats </li>
 		    <li> A = Ralston Purina </li>
-           
+            </ul>
 	    <h4> Nutritional Metrics Appendix</h4>
             <ul>
 		    <li> Rating = rating of the cereal (from consumer reports) </li>
@@ -88,7 +88,7 @@
 <hr style="height:2px;border-width:0;color:black;background-color:black">
 	
 <div>
-   <section class=" p-3 p-lg-5 d-flex d-column" id="rating">
+   <section id="rating">
           <h1 style=font-size:20px>Factors that might affect the Ratings</h1>
 	   <p> The graph below shows the relationship between the ratings and key nutritional metrics such as Calories, Sugars, Proteins Vitamins etc. 
 		<br>
@@ -111,13 +111,13 @@
 	    As seen above, you can get an overall sense of these relationships:
 	   <br>
 	   <br>
-	   <span style="color:#a12731"> 1. Calories doesnt have too much of an imapct on the Cereal Ratings and most of the calories per cup are < 300. </span>
+	   <span style="color:#a12731"> 1. Calories don't have too much of an imapct on the Cereal Ratings and most of the calories per cup are < 300. </span>
 	   <br>
 	   <span style="color:#b57735"> 2. Sugars have a slight negative impact and most of the highly rated cereals (60+) have 0 sugar.  </span>
 	   <br>
 	   <span style="color:#2955c4"> 3. Proteins have a stronger positive relationship with Ratings.  </span>
 	   <br>
-	   <span style="color:#339149"> 4. Vitamins doesnt have too much of an imapct on the Cereal Ratings but most of the highly rated cereals (60+) have 0 vitamins.  </span>
+	   <span style="color:#339149"> 4. Vitamins don't have too much of an imapct on the Cereal Ratings but most of the highly rated cereals (60+) have 0 vitamins.  </span>
 	  <br>
 	   <br>
           <a class="button" href="#Stats" font-size='40px'> Next </a>
@@ -133,15 +133,16 @@
 	<section id = "Stats">
 	  <h1 style=font-size:20px>Cereal Manufacturer Statistics</h1>
 	    <p2> This section shows you an overview of the cereals with the highest rating/calories by the manufacturer. 
-            You can toggle between the buttons to see the different views.
-            <svg id='svg-2' width='1000' height="600"float="left" display='none'></svg>
-            <svg id='svg-3' width='1000' height="600"float="left"></svg>
+            <br> 
+	    You can toggle between the buttons to see the different views.
 	    <br>
             <button class='button' onclick="showratings();">Manufacturer By Highest Ratings </button>
             <button class='button' onclick="showcalories();" > Manufacturer By Highest Calories </button>
 	    <br>
-	    <br>
-	      As seen in the annotation above, General Mills manufactures the cereal with the highest rating and the highest amount of calories per cup!
+            <svg id='svg-2' width='1000' height="600"float="left" display='none'></svg>
+            <svg id='svg-3' width='1000' height="600"float="left"></svg>
+	    <br> 
+	      As seen in the annotation above, <strong> <span style="color:red" font-weight: bold> General Mills </span> </strong> manufactures the cereal with the highest rating and the highest amount of calories per cup!
 	    <br>   
             <br>
 	    <a class="button" href="#sources" font-size='40px'> Next </a>
@@ -163,8 +164,7 @@
 		    <li>  https://www.kaggle.com/datasets/crawford/80-cereals </li>
 		    <li>    https://d3-annotation.susielu.com/ </li>
             </ul>
-	    <br>
-	    <p> THANK YOU!
+	    <p> THANK YOU :)
 		<BR>
 		HOPE YOU ENJOYED THE VISUALIZATION! 
 	    </P>
