@@ -11,13 +11,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.js" integrity="sha512-OYIn9Tx6AQ/OfeUow7zLScBXV38CqumwIpue7WoR7RczlHJUVU+GqJmQ2Zmq/NrRsMhCN4EDGM4Wp97iTo34Jw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js" integrity="sha512-iBAeBWWWFb8HqSBcrqcz98iIpuVH1la39dEYHtyQ/pGpeCQTQVvLJOWAuhv2Q7JSHp9k7hWA7sGxU3hHJe+tFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.independent.js" integrity="sha512-w4Lgu5/zPkEMQV0p8a/j9rVhetarK5fyhtIoucJRmB26GF/xeX1lyF24lE4UAVpt7rt1eCrN+AhVK6njqoLJ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.independent.min.js" integrity="sha512-89IU2quof1oR2mYXl38GkyY7HQFyHtzubPPEP7DlLNAkO6FH/3AHByuHAfi0zvLP4hMtggXASW9gFzQEYn8rWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.js" integrity="sha512-OYIn9Tx6AQ/OfeUow7zLScBXV38CqumwIpue7WoR7RczlHJUVU+GqJmQ2Zmq/NrRsMhCN4EDGM4Wp97iTo34Jw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.independent.min.js" integrity="sha512-89IU2quof1oR2mYXl38GkyY7HQFyHtzubPPEP7DlLNAkO6FH/3AHByuHAfi0zvLP4hMtggXASW9gFzQEYn8rWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.js" integrity="sha512-OYIn9Tx6AQ/OfeUow7zLScBXV38CqumwIpue7WoR7RczlHJUVU+GqJmQ2Zmq/NrRsMhCN4EDGM4Wp97iTo34Jw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	
 <body id="Top">	
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-          <img src="cereal-ranked.jpg" width = "240" height = "190" alt="">
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+	<img src="cereal-ranked.jpg" width = "240" height = "190" alt="">
 	<ul class="navbar-nav" style="list-style: none;">
   		<li class="nav-item"> 
   		<a class="nav-link " href="#Overview">Overview</a>
@@ -36,25 +36,25 @@
   		</li>
         </ul>
 	<img src="sugar.png" width = "240" height = "180" alt="">
-		<br>
+	<br>
 	<img src="Cereal-and-milk.jpg" width = "240" height = "190" alt="">
-		<br>
+	<br>
 	<img src="choco.png" width = "240" height = "260" alt="">
 	</div>
   </nav>
 	
-	<h1 style=font-size:30px> Cereals - Narrative Visualization </h1>
+<h1 style=font-size:30px> CEREALS - Narrative Visualization </h1>
 <div>
       <section id="Overview">
       	<h1 style=font-size:20px> Overview </h1>
           <div>
-		  This is a Visualization about Cereal Manuactures and metrics such as the ratings, calories, proteins etc..
+		  This is a Visualization about Cereal Manuactures and metrics about their cereals such as the ratings, calories, proteins etc..
 		  <br>
-		  The <span style="color:red"> main aim </span> of this is to understand the top rated items from the cereal manufacures and see the relationship between this rating and other nutritional metrics such as calories, sugars, vitamins etc..
+		  The <span style="color:red"> main aim </span> of this is to understand the top rated cereals from the cereal manufacures and see the relationship between this rating and other nutritional metrics such as calories, sugars, vitamins etc..
           </div>
      
             <h4> Cereal Manufacturers Appendix </h4>
-            <ul>
+        
 		    <li> A = American Home Food Products </li>
 		    <li> K = General Mills </li>
 		    <li> N = Kelloggs </li>
@@ -62,7 +62,7 @@
 		    <li> Q = Post </li>
 		    <li> R = Quaker Oats </li>
 		    <li> A = Ralston Purina </li>
-            </ul>
+           
 	    <h4> Nutritional Metrics Appendix</h4>
             <ul>
 		    <li> Rating = rating of the cereal (from consumer reports) </li>
@@ -76,9 +76,9 @@
 	      <div id = "top10"> </div>
 	      <svg id='svg-8' width='1000' height="600"float="left"></svg>
 	      <h3> Some key observations based on the data above </h3>
-	      As we can see here the highest is All-Bran with Extra Fiber by General Mills.
-	      (This is seen in the chart in the Manufacturer Statistics Section as well.)
-	     <br> Kelloggs manufactures 4/5 Top rated cereals on the list!
+	      <li>As we can see here the highest is All-Bran with Extra Fiber by General Mills. </li>
+	      (This is seen in the chart in the Manufacturer Stats Section as well.)
+	     <br> <li>Kelloggs manufactures 4/5 Top rated cereals on the list! </li>
 	     <br>
 	      <br>
       <a class="button" href="#rating" font-size='40px'> Next </a>
@@ -90,19 +90,18 @@
 <div>
    <section class=" p-3 p-lg-5 d-flex d-column" id="rating">
           <h1 style=font-size:20px>Factors that might affect the Ratings</h1>
-	   <p> The graph below shows the relationship between the ratings and key nutritional characteristics such as Calories, Sugars, Proteins Vitamins etc. 
+	   <p> The graph below shows the relationship between the ratings and key nutritional metrics such as Calories, Sugars, Proteins Vitamins etc. 
 		<br>
 	       (These values have been normalized to show the amount per cup.)
 		<br>
 		   <br>
-		   You can toggle between the different characteristics by choosing the buttons below the chart and seeing the relationships.
+		   You can toggle between the different metrics by choosing the buttons below and seeing the relationships on the chart.
 	   </p>
 	    <button class='button' onclick="showratings_vs_cals();" style="background-color:#a12731;color:white" > Calories </button>
             <button class='button' onclick="showratings_vs_sugars();" style="background-color:#b57735;color:white"> Sugars </button>
 	    <button class='button' onclick="showratings_vs_proteins();" style="background-color:#2955c4;color:white"> Proteins </button>
 	    <button class='button' onclick="showratings_vs_vitamins();" style="background-color:#339149;color:white"> Vitamins </button>
 	    <br>
-	   
           <svg id='svg-4' width='1000' height="600"float="left"></svg>
 	  <svg id='svg-5' width='1000' height="600"float="left" display='none'></svg>
 	  <svg id='svg-6' width='1000' height="600"float="left" display='none'></svg>
@@ -112,13 +111,13 @@
 	    As seen above, you can get an overall sense of these relationships:
 	   <br>
 	   <br>
-	   <span style="color:#a12731"> 1. Calories doesnt have too much of an imapct on the Cereal Ratings. </span>
+	   <span style="color:#a12731"> 1. Calories doesnt have too much of an imapct on the Cereal Ratings and most of the calories per cup are < 300. </span>
 	   <br>
-	   <span style="color:#b57735"> 2. Sugars have a slight negative impact.  </span>
+	   <span style="color:#b57735"> 2. Sugars have a slight negative impact and most of the highly rated cereals (60+) have 0 sugar.  </span>
 	   <br>
-	   <span style="color:#2955c4"> 3. Proteins have a slight positive relationship with Ratings.  </span>
+	   <span style="color:#2955c4"> 3. Proteins have a stronger positive relationship with Ratings.  </span>
 	   <br>
-	   <span style="color:#339149"> 4. Vitamins doesnt have too much of an imapct on the Cereal Ratings.  </span>
+	   <span style="color:#339149"> 4. Vitamins doesnt have too much of an imapct on the Cereal Ratings but most of the highly rated cereals (60+) have 0 vitamins.  </span>
 	  <br>
 	   <br>
           <a class="button" href="#Stats" font-size='40px'> Next </a>
@@ -128,11 +127,13 @@
 	</section>
 </div>
 
-	<hr style="height:2px;border-width:0;color:black;background-color:black">
+<hr style="height:2px;border-width:0;color:black;background-color:black">
+
 <div>		
-	<section class = "p-3 p-lg-5 d-flex d-column" id = "Stats">
+	<section id = "Stats">
 	  <h1 style=font-size:20px>Cereal Manufacturer Statistics</h1>
-	    <p2> This section shows you an overview of the highest nutritiona metrics of manufacturer.
+	    <p2> This section shows you an overview of the cereals with the highest rating/calories by the manufacturer. 
+            You can toggle between the buttons to see the different views.
             <svg id='svg-2' width='1000' height="600"float="left" display='none'></svg>
             <svg id='svg-3' width='1000' height="600"float="left"></svg>
 	    <br>
@@ -140,16 +141,18 @@
             <button class='button' onclick="showcalories();" > Manufacturer By Highest Calories </button>
 	    <br>
 	    <br>
-		   As seen above, General Mills manufactures the cereal with the highest rating and the highest amount of calories per cup.
-		<br>   
-		    <br>
+	      As seen in the annotation above, General Mills manufactures the cereal with the highest rating and the highest amount of calories per cup!
+	    <br>   
+            <br>
 	    <a class="button" href="#sources" font-size='40px'> Next </a>
 	    <br>
-		    <br>
+	     <br>
             <a class="button" href="#Top" font-size='40px'> Return </a>
-        </section>
+            </section>
 </div>	
-	<hr style="height:2px;border-width:0;color:black;background-color:black">
+
+<hr style="height:2px;border-width:0;color:black;background-color:black">
+
 <div>
       <section id="sources">
             <h2> Sources </h2>
@@ -161,6 +164,10 @@
 		    <li>    https://d3-annotation.susielu.com/ </li>
             </ul>
 	    <br>
+	    <p> THANK YOU!
+		<BR>
+		HOPE YOU ENJOYED THE VISUALIZATION! 
+	    </P>
             <a class="button" href="#Top" font-size='40px'> Return </a>
       </section>
 </div>
