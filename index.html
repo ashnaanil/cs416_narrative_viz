@@ -76,10 +76,11 @@
 	      <div id = "top10"> </div>
 	      <svg id='svg-8' width='1000' height="600"float="left"></svg>
 	      <h3> Some key observations based on the data above </h3>
-	      As we can see here the highest is All-Bran with Extra Fiber by Khas
+	      As we can see here the highest is All-Bran with Extra Fiber by General Mills.
 	      (This is seen in the chart in the Manufacturer Statistics Section as well.)
-	     <br> Nhas manufactures 4/5 Top rated cereals on the list!
+	     <br> Kelloggs manufactures 4/5 Top rated cereals on the list!
 	     <br>
+	      <br>
       <a class="button" href="#rating" font-size='40px'> Next </a>
       </section>
 </div>
@@ -93,9 +94,9 @@
 		<br>
 	       (These values have been normalized to show the amount per cup.)
 		<br>
+		   <br>
 		   You can toggle between the different characteristics by choosing the buttons below the chart and seeing the relationships.
 	   </p>
-	   <br>
 	    <button class='button' onclick="showratings_vs_cals();" style="background-color:#a12731;color:white" > Calories </button>
             <button class='button' onclick="showratings_vs_sugars();" style="background-color:#b57735;color:white"> Sugars </button>
 	    <button class='button' onclick="showratings_vs_proteins();" style="background-color:#2955c4;color:white"> Proteins </button>
@@ -118,8 +119,10 @@
 	   <br>
 	   <span style="color:#339149"> 4. Vitamins doesnt have too much of an imapct on the Cereal Ratings.  </span>
 	  <br>
+	   <br>
           <a class="button" href="#Stats" font-size='40px'> Next </a>
           <br>
+	   <br>
           <a class="button" href="#Top" font-size='40px'> Return </a>
 	</section>
 </div>
@@ -136,10 +139,12 @@
             <button class='button' onclick="showcalories();" > Manufacturer By Highest Calories </button>
 	    <br>
 	    <br>
-		    "Add some context here"
-		<br>    
+		   As seen above, General Mills manufactures the cereal with the highest rating and the highest amount of calories per cup.
+		<br>   
+		    <br>
 	    <a class="button" href="#sources" font-size='40px'> Next </a>
 	    <br>
+		    <br>
             <a class="button" href="#Top" font-size='40px'> Return </a>
         </section>
 </div>	
@@ -559,14 +564,14 @@ d3.csv("cereal.csv", function(d) {
       .enter()
       .append("p")
       .text(function(d){
-        return " o " + d.name + " by " +  d.mfr  +  "has a rating: " +  d.rating;
+        return " o " + d.name + " by " +  d.mfr  +  " has a rating: " +  d.rating;
       });
     });
 
 
 const annotations = [{
 	note: {
-	label: "(Manufactured by Khas as seen in the first section)",
+	label: "(Manufactured by General Mills as seen in the first section)",
 	title: "Highest Rated Cereal"
 	}, 
 	 x: 390, y: 48, dy: 100, dx: 200
@@ -582,7 +587,7 @@ d3.select("#svg-3")
 	
 const annotations2 = [{
 	note: {
-	label: "Highest Calorific Cereal (Manufactured by Khas as well)",
+	label: "Highest Calorific Cereal (Manufactured by General Mills as well)",
 	}, 
 	 x: 390, y: 120, dy: 5, dx: 100
  }].map(function(d) { d.color = "#120000"; return d})
