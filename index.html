@@ -326,10 +326,9 @@
             .append("text") 
 	    .text(function(d) { return y(d.rating); })
 	    .attr("x", function(d){ return x(d.name) + x.bandwidth()/2; })
-	    .attr("y", -5 + function(d){ return y(d.rating); })
-	    .attr("font-family" , "sans-serif")
+	    .attr("y", function(d){ return y(d.rating)-5; })
 	    .attr("font-size" , "14px")
-	    .attr("fill" , "red")
+	    .attr("fill" , "black")
 	    .attr("text-anchor", "middle");
     });
 	
