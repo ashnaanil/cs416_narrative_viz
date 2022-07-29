@@ -275,7 +275,7 @@
   var x1 = d3.scaleLinear().range([-0, width]).domain([0, 100]);
   var y1 = d3.scaleLinear().range([height, 0]);
 
-	
+  const f = d3.format(".1f")
 //top5 rated cereal chart
     d3.csv("cereal.csv", function(d) {
       return d;
@@ -324,7 +324,7 @@
 	    .data(top5)
 	    .enter()
             .append("text") 
-	    .text(function(d) { return d.rating; })
+	    .text(function(d) { return f(d.rating); })
 	    .attr("x", function(d){ return x(d.name) + x.bandwidth()/2; })
 	    .attr("y", function(d){ return y(d.rating)-5; })
 	    .attr("font-size" , "14px")
