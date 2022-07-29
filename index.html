@@ -324,11 +324,11 @@
 	    .data(top5)
 	    .enter()
             .append("text") 
-	    .text(function(d) { return y(d.rating); })
+	    .text(function(d) { return d.rating; })
 	    .attr("x", function(d){ return x(d.name) + x.bandwidth()/2; })
 	    .attr("y", function(d){ return y(d.rating)-5; })
 	    .attr("font-size" , "14px")
-	    .attr("fill" , "black")
+	    .attr("fill" , "#2955c4")
 	    .attr("text-anchor", "middle");
     });
 	
