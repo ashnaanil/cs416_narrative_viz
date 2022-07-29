@@ -285,7 +285,7 @@
 		    return d3.descending(+a.rating, +b.rating);
       }).slice(0,5)
       console.log(top5.map(function(d) { return d.item; }))
-      x.domain(data.map(function(d) { return d.name; }));
+      x.domain(top5.map(function(d) { return d.name; }));
       y.domain([0, 100]);
       g8.append("g")
 	 .selectAll(".bar")
