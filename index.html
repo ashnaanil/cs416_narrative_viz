@@ -284,7 +284,7 @@
       var top5 = data.sort(function(a,b) {
 		    return d3.descending(+a.rating, +b.rating);
       }).slice(0,5)
-      console.log(topdata.map(function(d) { return d.item; }))
+      console.log(top5.map(function(d) { return d.item; }))
       x.domain(data.map(function(d) { return d.name; }));
       y.domain([0, 100]);
       g8.append("g")
