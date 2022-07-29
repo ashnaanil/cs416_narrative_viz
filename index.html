@@ -293,7 +293,7 @@
 	    .enter()
 	    .append("rect")
 	    .attr("class", "bar")
-	    .style("fill", "#a12731")
+	    .style("fill", "#000")
 	    .attr("x", function(d) { return x(d.name); })
 	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x.bandwidth())
@@ -612,7 +612,7 @@ const annotations2 = [{
 	label: "Highest Calorific Cereal (Manufactured by General Mills as well)",
 	}, 
 	 x: 390, y: 120, dy: 5, dx: 100
- }].map(function(d) { d.color = "#120000"; return d})
+ }].map(function(d) { d.color = "#8a000000"; return d})
  const makeAnn2 = d3.annotation()
  .type(d3.annotationLabel)
  .annotations(annotations2)
