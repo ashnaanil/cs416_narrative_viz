@@ -298,10 +298,11 @@
 	    .attr("y", function(d) { return y(d.rating); })
 	    .attr("width", x.bandwidth())
 	    .attr("height", function(d) { return height - y(d.rating); }); 
-	    .append("text") 
+     g8.append("g")
+            .append("text") 
 	    .text(function(d) { return y(d.rating); })
 	    .attr("x", function(d){ return x(d.name) + x.bandwidth()/2; })
-	    .attr("y", function(d){ return y(d.rating)} - 5 )
+	    .attr("y", -5 + function(d){ return y(d.rating); })
 	    .attr("font-family" , "sans-serif")
 	    .attr("font-size" , "14px")
 	    .attr("fill" , "red")
