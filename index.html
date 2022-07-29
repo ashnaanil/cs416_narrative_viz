@@ -631,20 +631,20 @@ d3.select("#svg-2")
 .call(makeAnn2)
 	
 	
-const annotations = [{
+const annotations3 = [{
 	note: {
 	label: "(Manufactured by General Mills as seen in the first section)",
 	title: "Highest Rated Cereal"
 	}, 
 	 x: 390, y: 48, dy: 100, dx: 200
  }].map(function(d) { d.color = "#8a0000"; return d})
- const makeAnn = d3.annotation()
+ const makeAnn3 = d3.annotation()
  .type(d3.annotationLabel)
- .annotations(annotations)
+ .annotations(annotations3)
 d3.select("#svg-8")
 .append("g")
 .attr("class", "annotation-group")
-.call(makeAnn)
+.call(makeAnn3)
 
 	
     </script>
