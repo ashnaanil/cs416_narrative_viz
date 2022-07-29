@@ -273,9 +273,15 @@
   var y = d3.scaleLinear().rangeRound([height, 0]);
   var x1 = d3.scaleLinear().range([-0, width]).domain([0, 100]);
   var y1 = d3.scaleLinear().range([height, 0]);
-
+   
+  //for top5 visual
+  var w = +svg8.attr("width") - margin.left - margin.right
+  var h = +svg8.attr("height") - margin.top - margin.bottom
+  var xx = d3.scaleBand().rangeRound([0, w]).paddingInner(0.1);
+  var yy = d3.scaleLinear().rangeRound([h, 0]);
   const f = d3.format(".1f")
-//top5 rated cereal chart
+
+  //top5 rated cereal chart
     d3.csv("cereal.csv", function(d) {
       return d;
     }, function(error, data) {
@@ -283,9 +289,8 @@
       var top5 = data.sort(function(a,b) {
 		    return d3.descending(+a.rating, +b.rating);
       }).slice(0,5)
-      console.log(top5.map(function(d) { return d.item; }))
-      x.domain(top5.map(function(d) { return d.name; }));
-      y.domain([0, 100]);
+      xx.domain(top5.map(function(d) { return d.name; }));
+      yy.domain([0, 100]);
       g8.append("g")
 	 .selectAll(".bar")
 	    .data(top5)
@@ -293,26 +298,26 @@
 	    .append("rect")
 	    .attr("class", "bar")
 	    .style("fill", "#000")
-	    .attr("x", function(d) { return x(d.name); })
-	    .attr("y", function(d) { return y(d.rating); })
-	    .attr("width", x.bandwidth())
-	    .attr("height", function(d) { return height - y(d.rating); }); 
+	    .attr("x", function(d) { return xx(d.name); })
+	    .attr("y", function(d) { return yy(d.rating); })
+	    .attr("width", xx.bandwidth())
+	    .attr("height", function(d) { return h - yy(d.rating); }); 
       g8.append("g")
           .attr("class", "axis")
-          .call(d3.axisBottom(x))
-          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(xx))
+          .attr("transform", "translate(0," + h + ")")
 	 .append("text")
-	    .attr("x", width - 200)
+	    .attr("x", w - 200)
 	    .attr("y", 30)
 	    .attr("text-anchor", "end")
 	    .attr("stroke", "black")
 	    .text("Cereal");
       g8.append("g")
           .attr("class", "axis")
-          .call(d3.axisLeft(y).ticks(null, "s"))
+          .call(d3.axisLeft(yy).ticks(null, "s"))
         .append("text")
           .attr("x", 2)
-          .attr("y", y(y.ticks().pop()) + 0.5)
+          .attr("y", yy(y.ticks().pop()) + 0.5)
           .attr("dy", "0.32em")
           .attr("fill", "#000")
           .attr("font-weight", "bold")
@@ -324,8 +329,8 @@
 	    .enter()
             .append("text") 
 	    .text(function(d) { return f(d.rating); })
-	    .attr("x", function(d){ return x(d.name) + x.bandwidth()/2; })
-	    .attr("y", function(d){ return y(d.rating)-5; })
+	    .attr("x", function(d){ return xx(d.name) + xx.bandwidth()/2; })
+	    .attr("y", function(d){ return yy(d.rating)-5; })
 	    .attr("font-size" , "14px")
 	    .attr("fill" , "#a12731")
 	    .attr("text-anchor", "middle");
