@@ -319,6 +319,14 @@
           .attr("font-weight", "bold")
           .attr("text-anchor", "start")
           .text("Rating");
+	g8.append("g")
+	    .text(function(d) { return y(d.rating); })
+	    .attr("x", function(d){ return x(d) + x.bandwidth()/2; })
+	    .attr("y", function(d){ return y(data[d]) - 5; })
+	    .attr("font-family" , "sans-serif")
+	    .attr("font-size" , "14px")
+	    .attr("fill" , "black")
+	    .attr("text-anchor", "middle");	    
     });
 	
 
@@ -336,7 +344,7 @@
 	    .enter()
 	    .append("rect")
 	    .attr("class", "bar")
-	    .style("fill", "#a12731")
+	    .style("fill", "#000")
 	    .attr("x", function(d) { return x(d.mfr); })
 	    .attr("y", function(d) { return y(d.calories); })
 	    .attr("width", x.bandwidth())
