@@ -301,8 +301,8 @@
 	    .attr("class", "bar")
 	    .style("fill", "#000")
 	    .attr("x", function(d) { return xx(d.name); })
+	    .attr("width", xx.bandwidth())	    
 	    .attr("y", function(d) { return yy(d.rating); })
-	    .attr("width", xx.bandwidth())
 	    .attr("height", function(d) { return h - yy(d.rating); }); 
       g8.append("g")
           .attr("class", "axis")
@@ -635,7 +635,7 @@ const annotations3 = [{
 	note: {
 	title: "Manufactured by General Mills",
 	}, 
-	 x: 190, y: 32, dy: 5, dx: 150
+	 x: 190, y: 30, dy: 5, dx: 150
 	 }]
 	.map(function(d) { d.color = "#8a0000"; return d})
 	 const makeAnn3 = d3.annotation()
