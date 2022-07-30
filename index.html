@@ -302,8 +302,8 @@
 	    .style("fill", "#000")
 	    .attr("x", function(d) { return xx(d.name); })
 	    .attr("width", xx.bandwidth())	   
-	    .attr("y", yy(0))
-	    .attr("height", 0)
+	    .attr("y", yy(50))
+	    .attr("height", function(d) {return h - yy(50)})
 	    .transition().duration(3000).delay(1000)
 	    .attr("y", function(d) { return yy(d.rating); })
 	    .attr("height", function(d) { return h - yy(d.rating); }); 
