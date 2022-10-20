@@ -1,0 +1,13 @@
+Profession,Discipline,Career Stage,Min1,Max1,Min2,Max2,Currency,Type
+Administration,Business Support,ATR-B,1,11,21,22,USD,Hourly
+Administration,Business Support,ATR-C,2,12,22,22,USD,Hourly
+Administration,Business Support,ATR-D,3,13,23,22,USD,Hourly
+Administration,Business Support,ATR-E,4,14,24,22,USD,Hourly
+Administration,Business Support,M2,5,15,25,22,USD,Hourly
+Administration,Executive Assistant,IC4,6,16,26,22,USD,Annually
+Administration,Executive Assistant,IC5,7,17,27,22,USD,Annually
+Administration,Executive Assistant,M4,8,18,28,22,USD,Annually
+Administration,Executive Assistant,M5,9,19,29,22,USD,Annually
+Business Development & Strategy,Business Strategy,IC1,10,20,30,22,USD,Hourly
+Business Development & Strategy,Business Strategy,IC2,11,21,31,22,USD,Annually
+Business Development & Strategy,Business Strategy,IC3,12,22,32,22,USD,Annually
